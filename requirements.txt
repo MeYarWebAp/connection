@@ -1,0 +1,9 @@
+gspread
+gspread_dataframe
+google
+pydrive
+gsheetsdb  
+cffi
+streamlit 
+pandas
+numpy
