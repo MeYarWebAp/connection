@@ -1,0 +1,7 @@
+pandas==1.3.4 
+streamlit==1.10.0 
+gsheetsdb==0.1.13.1 
+gspread==5.5.0 
+gspread_dataframe==3.3.0 
+google==3.0.0   
+pydrive==1.3.1             
