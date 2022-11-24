@@ -125,10 +125,10 @@ with st.sidebar:
                     return rrr
                 spd=sendpassD(num444444)
                 #st.write(spd)
-                num000000 = st.text_input('لطفا پسورد ارسال شده به ایمیل خود را وارد کنید',key=6352898764252525)
+                num000000 = st.number_input('لطفا پسورد ارسال شده به ایمیل خود را وارد کنید',key=6352898764252525)
                 if num000000:
                     
-                    if (eval (num000000)==spd):
+                    if (num000000==spd):
 
                         url1= 'https://docs.google.com/spreadsheets/d/1zX0B7Iztun5l86Tj9zvaoPGz12InsUSCgI-na5aMN_s/edit#gid=2048497992'
                         url2= 'https://docs.google.com/spreadsheets/d/1zX0B7Iztun5l86Tj9zvaoPGz12InsUSCgI-na5aMN_s/edit#gid=1914814158'
