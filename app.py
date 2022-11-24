@@ -85,7 +85,7 @@ with st.sidebar:
         #st.write("")
         
     if page == 'تماس با ما':#
-        st.write('meyar.web.app@gmail.com')# 
+        st.write('meyarwebapp@meyr.ir')# 
     if page=='پایان جستجوی من در معیار':
         #pppp = st.button('پاک شدن ایمیل من از معیار', key="100007697690002")
         #if pppp:#
