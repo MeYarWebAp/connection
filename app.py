@@ -102,7 +102,7 @@ with st.sidebar:
                 def sendpassD(email_1):
                     
     
-                    email_sender="meyar.web.app@gmail.com"
+                    email_sender="meyarwebapp@meyr.ir"
                     password="agfkeaqajzqnfidv"
                     email_receiver=email_1
                     rrr=random.randint(1000000001, 9999999999)
@@ -259,7 +259,7 @@ num0=num0.lower()
 @st.cache(allow_output_mutation=False)
 def sendpass(email_1):#
     
-    email_sender="meyar.web.app@gmail.com"
+    email_sender="meyarwebapp@meyr.ir"
     password="agfkeaqajzqnfidv"
     email_receiver=email_1
     rrr=random.randint(1000000001, 9999999999)
