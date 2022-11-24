@@ -6,6 +6,7 @@ Created on Sat Jun 18 15:56:02 2022
 import random
 import pandas as pd
 import sqlalchemy
+import pymysql
 from sqlalchemy import create_engine
 import time
 import base64
@@ -1768,7 +1769,13 @@ if (eval (num00)==sp):
             df_2=pd.DataFrame({'id': [num0], 'gender':[n100],'degree':[num8765],'c_kadu':[n2222],'c_hair':[n150],'c_hair_det':[num150],'hair':[num1500],'c_negah':[n313],'c_negah_det':[num313],'negah':[n3130],'c_harf':[n413],'c_harf_det':[num413],'harf':[n4130],'c_bakh':[n213],'c_bakh_det':[num213],'bakh':[n2130],'c_dur':[n222],'c_dur_det':[num222],'c_ramezan':[n999],'c_ramezan_det':[num999],'ramezan':[num9999],'c_vas':[n8000],'vas':[num80000],'c_des':[n7000],'c_des_det':[num7000],'des':[num70000],'c_nava':[n6000],'c_nava_det':[num6000],'c_doa':[n1012],'c_music':[n1013],'doa':[n10012],'music':[n10013],'c_family_number':[n5000],'c_family_number_det':[num5000],'family_number':[n50000],'c_humor':[n1010],'humor':[n10010],'c_eg':[n3000],'eg':[n30000],'c_il':[n2000],'c_il_det':[num2000],'c_mood':[n1011],'c_mood_det':[num1011],'mood':[num10011],'c_moh':[n1009],'moh':[n10009],'c_food':[n1005],'food':[n10005],'c_zaher':[n1006],'zaher':[n10006],'c_study':[n1007],'study':[n10007],'c_din':[n1008],'din':[n10008],'c_sport':[n1000],'c_sport_det':[num1000],'sport':[n10000],'c_money':[n1001],'c_money_det':[num1001],'money':[n10001],'c_politic':[n1002],'c_politic_det':[num1002],'politic':[n10002],'c_fd':[n1003],'fd':[n10003],'c_fj':[n1004],'fj':[n10004],'c_min_age':[num7],'c_max_age':[num8],'c_family_wealth':[n1],'c_family_wealth_det':[num1],'c_philo':[n2],'c_philo_det':[num2],'c_living_location':[n9],'c_living_location_det':[num9],'c_academic_level':[n10],'c_academic_level_det':[num10],'c_hight_min':[num11],'c_hight_max':[num12],'c_face_color':[n13],'c_face_det':[num13],'c_weight':[n14], 'c_weight_det':[num14],'c_nose':[n15], 'c_nose_det':[num15],'c_eyes':[n16],'c_eyes_det':[num16],'c_smoke':[n27],'c_smoke_det':[num27],'c_drink':[n28],'c_drink_det':[num28],'c_disability':[n17],'c_disability_det':[num17],'c_major':[n3],'c_major_det':[num3],'c_program':[n4],'c_program_det':[num4], 'c_mistake':[n5], 'c_mistake_det':[num5],'c_social_att':[n18],'c_social_att_det':[num18], 'c_mental_att':[n25],'c_mental_att_det':[num25],'c_beleifs':[n19],'c_beleifs_det':[num19],'c_house_ownership':[n22],'c_house_ownership_det':[num22],'c_auto_ownership':[n23],'c_auto_ownership_det':[num23],'c_employment':[n24],'c_employment_det':[num24],'c_marriage_exp':[n20], 'c_marriage_exp_det':[num20],'c_want_children':[n21],'c_want_children_det':[num21],'c_family_job':[n6],'c_family_job_det':[num6],  'family_job':[n106],'age':[num107],'family_wealth':[n101] ,'philo':[n102],'living_location':[n109],'academic_level':[n110] ,'hight':[num111], 'face_color':[num112],'weight':[num113] ,'nose':[num114] ,'eyes':[num115] ,'smoke':[num127] ,'drink':[num128] ,'disability':[num116] ,'major':[n103] ,'program':[n104] ,'mistake':[n105] ,'social_att':[num118] ,'mental_att':[num119] ,'beleifs':[num120] ,'house_ownership':[n121] ,'auto_ownership':[n122],'employment':[n123] ,'marriage_exp':[n20] ,'want_children':[n21]})         
             existing_2 = existing_2.append(df_2)###
             set_with_dataframe(worksheet=worksheet2, dataframe=existing_2, include_index=False,include_column_header=True, resize=True)
-        #new_df= df
+            
+            engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+            df_2.to_sql('users', engine, index=False)
+# Convert dataframe to sql table                                   
+
+    
+    #new_df= df
         #new_df_6=df_6
 
 
