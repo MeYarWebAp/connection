@@ -79,7 +79,7 @@ __موضوعات__
 #st.set_page_config(layout = "wide") # optional
 with st.sidebar:
     st.markdown(message)
-    page = st.selectbox('',['درباره معیار','تماس با ما','پایان جستجوی من در معیار'])
+    page = st.selectbox('',['تماس با ما','درباره معیار','پایان جستجوی من در معیار'])
     if page=='درباره معیار':
         st.write("instagram.com/meyar")
         #st.write("")
