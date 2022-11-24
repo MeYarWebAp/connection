@@ -125,7 +125,7 @@ with st.sidebar:
                     return rrr
                 spd=sendpassD(num444444)
                 #st.write(spd)
-                num000000 = st.number_input('لطفا پسورد ارسال شده به ایمیل خود را وارد کنید',key=6352898764252525)
+                num000000 = st.number_input('لطفا پسورد ارسال شده به ایمیل خود را وارد کنید',key=6352898764252525,value=int)
                 if num000000:
                     
                     if (num000000==spd):
@@ -282,7 +282,7 @@ def sendpass(email_1):#
     return rrr
 sp=sendpass(num0)
 #st.write(sp)
-num00 = st.number_input('لطفا پسورد ارسال شده به ایمیل خود را وارد کنید',key=63524252525)
+num00 = st.number_input('لطفا پسورد ارسال شده به ایمیل خود را وارد کنید',key=63524252525,value=int)
 
 while not num00:
         
