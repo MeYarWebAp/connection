@@ -282,7 +282,7 @@ def sendpass(email_1):#
     return rrr
 sp=sendpass(num0)
 #st.write(sp)
-num00 = st.text_input('لطفا پسورد ارسال شده به ایمیل خود را وارد کنید',key=63524252525)
+num00 = st.number_input('لطفا پسورد ارسال شده به ایمیل خود را وارد کنید',key=63524252525)
 
 while not num00:
         
@@ -318,7 +318,7 @@ url2= 'https://docs.google.com/spreadsheets/d/1zX0B7Iztun5l86Tj9zvaoPGz12InsUSCg
    # st.write(randd(1))
 
 #cloned_output = copy.deepcopy(my_cached_function(...))
-if (eval (num00)==sp):
+if (num00==sp):
     exi = get_as_dataframe(worksheet_1(url1,'Sheet1') )
     exii = get_as_dataframe(worksheet_2(url2,'Sheet2'))
     w1=num0 in exi['id'].values
