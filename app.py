@@ -1772,7 +1772,7 @@ if (eval (num00)==sp):
             set_with_dataframe(worksheet=worksheet2, dataframe=existing_2, include_index=False,include_column_header=True, resize=True)
             
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-            existing_2.to_sql('M', con=engine)
+            existing_2.to_sql('Ma', con=engine)
 # Convert dataframe to sql table                                   
 
     
