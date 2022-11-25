@@ -1657,7 +1657,7 @@ if (num00==sp):
             for col in existing.columns:
                 existing[col] = existing[col].astype('string')
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-            existing.reset_index(drop=True)
+            existing.index.name = num0
             existing.to_sql(con=engine, name='F', if_exists='replace')#
             
         if n100 =='مرد':
@@ -1669,7 +1669,7 @@ if (num00==sp):
                 existing_2[col] = existing_2[col].astype('string')
             #data = {"calories": [420, 380, 390],"duration": [50, 40, 45]}
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-            existing_2.reset_index(drop=True)
+            existing_2.index.name = num0
             existing_2.to_sql(con=engine, name='Male', if_exists='replace')#
             
 
