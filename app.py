@@ -172,7 +172,7 @@ filename = 'MeYar '
 
 
 
-@st.cache(hash_funcs={sqlalchemy.orm.PATH.TO.CLASS: id}, allow_output_mutation=True)
+
 
 
 def getPandasfromMtable (x):
@@ -180,7 +180,7 @@ def getPandasfromMtable (x):
     engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
     dbConnection= engine.connect()
     return dbConnection  #  
-@st.cache(hash_funcs={sqlalchemy.orm.PATH.TO.CLASS: id}, allow_output_mutation=True)
+
 
 
 
