@@ -2295,6 +2295,7 @@ if (num00==sp):
                     #edited_li=[]
                     st.write(li)
                     for j in li:
+                        st.write(j)
                         if j[0]== num0:
                             #edited_li.append([j[0],j[1]])
                             hisher_basket.append([j[0],j[1]])
