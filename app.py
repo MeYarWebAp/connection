@@ -1763,11 +1763,11 @@ if (num00==sp):
             set_with_dataframe(worksheet=worksheet1, dataframe=existing, include_index=False,include_column_header=True, resize=True)
             df_1s = df_1
             #df_2s=df_2
-            for col in df_1s.columns:
+            #for col in df_1s.columns:
                 
-                df_1s[col] = df_1s[col].astype('string')
+                #df_1s[col] = df_1s[col].astype('string')
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-            df_1s.to_sql('F', con=engine)
+            df_1s.to_sql('FF', con=engine)
         #worksheet1.clear()
         #worksheet6 = gs_6.worksheet('Sheet6')
         if n100 =='مرد':
@@ -1781,11 +1781,11 @@ if (num00==sp):
             #data = {"calories": [420, 380, 390],"duration": [50, 40, 45]}
             df_2s = df_2
             #df_2s=df_2
-            for col in df_2s.columns:
+            #for col in df_2s.columns:
                 
-                df_2s[col] = df_2s[col].astype('string')
+                #df_2s[col] = df_2s[col].astype('string')
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-            df_2s.to_sql('M', con=engine)
+            df_2s.to_sql('MM', con=engine)
             
 # Convert dataframe to sql table                                   
 
