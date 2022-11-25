@@ -1778,15 +1778,8 @@ if (num00==sp):
                 
                 df_2s[col] = df_2s[col].astype('string')
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-            #df_2s.to_sql('Malloo', con=engine)
-            import pymysql
-            pymysql.install_as_MySQLdb()
-            import MySQLdb
-            db= MySQLdb.connect(**st.secrets["mysql"])
-            cursor= db.cursor()
-            cursor.execute("SELECT * FROM Malloo")
-            resultt = cursor.fetchall()
-            st.write(resultt)
+            df_2s.to_sql('lalloo', con=engine)
+            
 # Convert dataframe to sql table                                   
 
     
