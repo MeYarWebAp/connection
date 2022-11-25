@@ -112,7 +112,7 @@ with st.sidebar:
                     if (num000000==spd):
 
                         
-                        @st.cache(allow_output_mutation=True, hash_funcs={"_thread.RLock": lambda _: None, "builtins.weakref":lambda _: None})
+                        #@st.cache(allow_output_mutation=True, hash_funcs={"_thread.RLock": lambda _: None, "builtins.weakref":lambda _: None})
 
                         
                         
@@ -167,7 +167,7 @@ filename = 'MeYar '
 
 
 
-@st.cache(allow_output_mutation=True, hash_funcs={"_thread.RLock": lambda _: None, "builtins.weakref":lambda _: None})
+#@st.cache(allow_output_mutation=True, hash_funcs={"_thread.RLock": lambda _: None, "builtins.weakref":lambda _: None})
 
 def getPandasfromtable (x):
     x=x+1
