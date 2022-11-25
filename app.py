@@ -1774,7 +1774,7 @@ if (num00==sp):
                 
                 #df_1s[col] = df_1s[col].astype('string')
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-            df_1s.to_sql('FF', con=engine)
+            #df_1s.to_sql('FF', con=engine)
         #worksheet1.clear()
         #worksheet6 = gs_6.worksheet('Sheet6')
         if n100 =='مرد':
@@ -1792,7 +1792,7 @@ if (num00==sp):
                 
                 #df_2s[col] = df_2s[col].astype('string')
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-            df_2s.to_sql('MM', con=engine)
+            #df_2s.to_sql('MM', con=engine)
             
 # Convert dataframe to sql table                                   
 
