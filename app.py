@@ -326,7 +326,7 @@ if (num00==sp):
 
     dbConnection= engine.connect()
 
-    exii= pd.read_sql("select * from M", dbConnection)
+    exii= pd.read_sql("select * from Mal", dbConnection)
     exi=pd.read_sql("select * from F", dbConnection)
     
     w1=num0 in exi['id'].values
@@ -1746,7 +1746,7 @@ if (num00==sp):
         worksheet2=worksheet_2(url2,'Sheet2')
         #existing = get_as_dataframe(worksheet1 )
         #existing_2 = get_as_dataframe(worksheet2 )
-        existing_2= pd.read_sql("select * from M", dbConnection)
+        existing_2= pd.read_sql("select * from Mal", dbConnection)
         existing=pd.read_sql("select * from F", dbConnection)
 
         if W:
