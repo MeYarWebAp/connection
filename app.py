@@ -167,7 +167,8 @@ filename = 'MeYar '
 
 
 
-@st.cache(allow_output_mutation=True, hash_funcs={"_thread.RLock": lambda _: None})
+@st.cache(allow_output_mutation=True, hash_funcs={"_thread.RLock": lambda _: None, "builtins.weakref":lambda _: None}, suppress_st_warning=True)
+
 def getPandasfromtable (x):
     x=x+1
     engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
