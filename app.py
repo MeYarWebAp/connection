@@ -135,8 +135,8 @@ with st.sidebar:
                         
                         
                         
-                        exist = pd.read_sql("select * from Ftable", getPandasfromFtabl (1))
-                        exist_2 = pd.read_sql("select * from Ftable", getPandasfromMtabl (1))
+                        exist = pd.read_sql("select * from F", getPandasfromFtabl (1))
+                        exist_2 = pd.read_sql("select * from Mard", getPandasfromMtabl (1))
                         w1=num444444 in exist['id'].values
                         w2=num444444 in exist_2['id'].values
                         if w1:
@@ -253,7 +253,7 @@ if (num00==sp):
     
     
 
-    exii=  pd.read_sql("select * from Male", getPandasfromMtable (1))
+    exii=  pd.read_sql("select * from Mard", getPandasfromMtable (1))
     exi=   pd.read_sql("select * from F", getPandasfromFtable (1))
     
     w1=num0 in exi['id'].values
@@ -1644,7 +1644,7 @@ if (num00==sp):
     my_basket=[]
     if p:
         
-        existing_2= pd.read_sql("select * from Male", getPandasfromMtable (1))
+        existing_2= pd.read_sql("select * from Mard", getPandasfromMtable (1))
         existing=   pd.read_sql("select * from F", getPandasfromMtable (1))
 
         if W:
@@ -2323,7 +2323,7 @@ if (num00==sp):
                 exii[col] = exii[col].astype('string')
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
             exii.reset_index(drop=True)
-            exii.to_sql(con=engine, name='Male', if_exists='replace')
+            exii.to_sql(con=engine, name='Mard', if_exists='replace')
             
 
 
@@ -2334,7 +2334,7 @@ if (num00==sp):
         if n100 !='مرد':
             
             
-            e_2=pd.read_sql("select * from Male", getPandasfromMtable (1))
+            e_2=pd.read_sql("select * from Mard", getPandasfromMtable (1))
             le_2=len(e_2)
             basket=[]
             for i in range(0, le_2):
