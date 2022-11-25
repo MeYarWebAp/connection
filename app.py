@@ -2943,7 +2943,7 @@ if (num00==sp):
                 #hisher_basket.append(li)
             
             ex=pd.read_sql("select * from F", getPandasfromtable (1))
-                
+            pd.DataFrame(ex)   
             ex.loc[ex['id']==num0, ['candidate_list']] = str(basket)
             for col in ex.columns:
                 ex[col] = ex.astype('string')
