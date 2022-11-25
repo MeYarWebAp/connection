@@ -249,8 +249,8 @@ if (num00==sp):
     
     
 
-    exii=  pd.read_sql("select * from Mtable", getPandasfromMtable (1))
-    exi=   pd.read_sql("select * from Mtable", getPandasfromFtable (1))
+    exii=  pd.read_sql("select * from Male", getPandasfromMtable (1))
+    exi=   pd.read_sql("select * from F", getPandasfromFtable (1))
     
     w1=num0 in exi['id'].values
     if w1:
@@ -1640,8 +1640,8 @@ if (num00==sp):
     my_basket=[]
     if p:
         
-        existing_2= getPandasfromMtable (1)
-        existing=   getPandasfromFtable (1) 
+        existing_2= pd.read_sql("select * from Male", getPandasfromMtable (1))
+        existing=   pd.read_sql("select * from F", getPandasfromMtable (1))
 
         if W:
 
@@ -1685,7 +1685,7 @@ if (num00==sp):
             
             
             
-            e_1=getPandasfromFtable (1) 
+            e_1=pd.read_sql("select * from F", getPandasfromMtable (1))
             le_1=len(e_1)
 
             basket=[]
@@ -2325,7 +2325,7 @@ if (num00==sp):
         if n100 !='مرد':
             
             
-            e_2=getPandasfromMtable (1)
+            e_2=pd.read_sql("select * from Male", getPandasfromMtable (1))
             le_2=len(e_2)
             basket=[]
             for i in range(0, le_2):
