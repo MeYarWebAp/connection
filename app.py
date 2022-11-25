@@ -2293,6 +2293,7 @@ if (num00==sp):
 
                     li=eval(e_1.iloc[i]['candidate_list'])
                     #edited_li=[]
+                    st.write(li)
                     for j in li:
                         if j[0]== num0:
                             #edited_li.append([j[0],j[1]])
