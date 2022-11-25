@@ -125,7 +125,7 @@ with st.sidebar:
                         #pd.read_sql("select * from Mtable", dbConnection)
                         
                         exist = pd.read_sql("select * from F", getPandasfromtabl (1))
-                        exist_2 = pd.read_sql("select * from Male", getPandasfromtabl (1))
+                        exist_2 = pd.read_sql("select * from MM", getPandasfromtabl (1))
                         w1=num444444 in exist['id'].values
                         w2=num444444 in exist_2['id'].values
                         if w1:
@@ -145,7 +145,7 @@ with st.sidebar:
                             for col in exist_2.columns:
                                 exist_2[col] = exist_2[col].astype('string')
                             
-                            exist_2.to_sql(con=engine, name='Male', if_exists='replace', index=False)#
+                            exist_2.to_sql(con=engine, name='MM', if_exists='replace', index=False)#
                             
                             st.write('درخواست با موفقیت انجام شد')
 
@@ -238,7 +238,7 @@ if (num00==sp):
     
     
 
-    exii=  pd.read_sql("select * from Male", getPandasfromtable (1))
+    exii=  pd.read_sql("select * from MM", getPandasfromtable (1))
     exi=   pd.read_sql("select * from F", getPandasfromtable (1))
     
     w1=num0 in exi['id'].values
@@ -1629,7 +1629,7 @@ if (num00==sp):
     my_basket=[]
     if p:
         
-        existing_2= pd.read_sql("select * from Male", getPandasfromtable (1))
+        existing_2= pd.read_sql("select * from MM", getPandasfromtable (1))
         existing=   pd.read_sql("select * from F", getPandasfromtable (1))
 
         if W:
@@ -1640,7 +1640,7 @@ if (num00==sp):
                     if n100 != ex.iloc[0]['gender']:
                         
                         engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-                        existing.to_sql(con=engine, name='Male', if_exists='replace', index=False)
+                        existing.to_sql(con=engine, name='MM', if_exists='replace', index=False)
                 if w2:
                     existing_2=existing_2.drop(ix)
                     #st.write(22222222222222222222)
@@ -1670,7 +1670,7 @@ if (num00==sp):
             #data = {"calories": [420, 380, 390],"duration": [50, 40, 45]}
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
             
-            existing_2.to_sql(con=engine, name='Male', if_exists='replace', index=False)#
+            existing_2.to_sql(con=engine, name='MM', if_exists='replace', index=False)#
             
 
 
@@ -2303,14 +2303,14 @@ if (num00==sp):
                     #hisher_basket.append(edited_li)
                     #my_basket.append(candidate)
             #exii = get_as_dataframe(worksheet2 )
-            exii=pd.read_sql("select * from Male", getPandasfromtable (1))
+            exii=pd.read_sql("select * from MM", getPandasfromtable (1))
                 #exi.loc['id', 'candidate_list'] = str(basket)
             exii.loc[exii['id']==num0, ['candidate_list']] = str(basket)
             for col in exii.columns:
                 exii[col] = exii[col].astype('string')
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
             
-            exii.to_sql(con=engine, name='Male', if_exists='replace', index=False)
+            exii.to_sql(con=engine, name='MM', if_exists='replace', index=False)
             
 
 
@@ -2321,7 +2321,7 @@ if (num00==sp):
         if n100 !='مرد':
             
             
-            e_2=pd.read_sql("select * from Male", getPandasfromtable (1))
+            e_2=pd.read_sql("select * from MM", getPandasfromtable (1))
             le_2=len(e_2)
             basket=[]
             for i in range(0, le_2):
