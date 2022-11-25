@@ -326,8 +326,8 @@ if (num00==sp):
 
     dbConnection= engine.connect()
 
-    Mframe= pd.read_sql("select * from M", dbConnection)
-    Fframe=pd.read_sql("select * from F", dbConnection)
+    exii= pd.read_sql("select * from M", dbConnection)
+    exi=pd.read_sql("select * from F", dbConnection)
     
     w1=num0 in exi['id'].values
     if w1:
