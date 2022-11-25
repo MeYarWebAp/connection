@@ -113,7 +113,7 @@ with st.sidebar:
 
                         
                         @st.cache(allow_output_mutation=True)
-                        @st.cache(suppress_st_warning=True)
+                        @st.cache(hash_funcs={dbConnection: id})
                         
                         def getPandasfromMtabl (x):
                             x=x+1
@@ -121,7 +121,7 @@ with st.sidebar:
                             dbConnection= engine.connect()
                             return pd.read_sql("select * from Mtable", dbConnection)
                         @st.cache(allow_output_mutation=True)
-                        @st.cache(suppress_st_warning=True)
+                        @st.cache(hash_funcs={dbConnection: id})
                         def getPandasfromFtabl (x):
                             x=x+1
                             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
@@ -165,12 +165,14 @@ while not num0:
 
 filename = 'MeYar '
 @st.cache(allow_output_mutation=True)
+@st.cache(hash_funcs={dbConnection: id})
 def getPandasfromMtable (x):
     x=x+1
     engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
     dbConnection= engine.connect()
     return pd.read_sql("select * from Mtable", dbConnection)
 @st.cache(allow_output_mutation=True)
+@st.cache(hash_funcs={dbConnection: id})
 def getPandasfromFtable (x):
     x=x+1
     engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
