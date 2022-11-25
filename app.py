@@ -322,6 +322,13 @@ url2= 'https://docs.google.com/spreadsheets/d/1zX0B7Iztun5l86Tj9zvaoPGz12InsUSCg
 if (num00==sp):
     exi = get_as_dataframe(worksheet_1(url1,'Sheet1') )
     exii = get_as_dataframe(worksheet_2(url2,'Sheet2'))
+    engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+
+    dbConnection= engine.connect()
+
+    Mframe= pd.read_sql("select * from M", dbConnection)
+    Fframe=pd.read_sql("select * from F", dbConnection)
+    
     w1=num0 in exi['id'].values
     if w1:
         #st.write(111111111111111111)
@@ -3085,7 +3092,8 @@ if (num00==sp):
     result = {'شما':num0 , 'دیگران در نگاه شما': my_basket,'شما در نگاه دیگران': hisher_basket}
     re = pd.DataFrame(result)
     st.dataframe(re)  
-    #st.success("")
+    st.dataframe(Mframe)
+#st.success("")
     
     st.write("")
     st.write("")
