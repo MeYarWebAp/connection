@@ -115,20 +115,18 @@ with st.sidebar:
                         @st.cache(allow_output_mutation=True)
                         
                         
-                        def getConnection (x):
-                            x=x+1
-                            engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-                            return engine
-                        st.cache(hash_funcs={sqlalchemy.engine.base.Engine: id})
+                        
                         def getPandasfromMtabl (x):
                             x=x+1
-                            dbConnection= getConnection(1).connect()
+                            engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+                            dbConnection= engine.connect()
                             return pd.read_sql("select * from Mtable", dbConnection)
-                        st.cache(hash_funcs={sqlalchemy.engine.base.Engine: id})
+                        @st.cache(allow_output_mutation=True)
                         
                         def getPandasfromFtabl (x):
                             x=x+1
-                            dbConnection= getConnection(1).connect()
+                            engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+                            dbConnection= engine.connect()
                             return pd.read_sql("select * from Ftable", dbConnection)
                         
                         
@@ -169,22 +167,20 @@ while not num0:
 filename = 'MeYar '
 @st.cache(allow_output_mutation=True)
 
-def getConnection (x):
-    x=x+1
-    engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-    return engine
+
 @st.cache(hash_funcs={"_thread.RLock": lambda _: None})
 
 def getPandasfromMtable (x):
     x=x+1
-    
-    dbConnection= getConnection (1).connect()
+    engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+    dbConnection= engine.connect()
     return pd.read_sql("select * from Mtable", dbConnection)
 @st.cache(hash_funcs={"_thread.RLock": lambda _: None})
-
+@st.cache(allow_output_mutation=True)
 def getPandasfromFtable (x):
     x=x+1
-    dbConnection= getConnection (1).connect()
+    engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+    dbConnection= engine.connect()
     return pd.read_sql("select * from Ftable", dbConnection)
 
 
