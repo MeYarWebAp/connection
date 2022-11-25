@@ -48,19 +48,19 @@ add_bg_from_url()
 
 
 # Create a connection object.
-credentials = service_account.Credentials.from_service_account_info(
-    st.secrets["gcp_service_account"],
-    scopes=[
-        "https://www.googleapis.com/auth/spreadsheets",
-    ],
-)
-conn = connect(credentials=credentials)
+#credentials = service_account.Credentials.from_service_account_info(
+    #st.secrets["gcp_service_account"],
+    #scopes=[
+        #"https://www.googleapis.com/auth/spreadsheets",
+    #],
+#)
+#conn = connect(credentials=credentials)
 
     # Perform SQL query on the Google Sheet.
 # Uses st.cache to only rerun when the query changes or after 10 min.
-gc = gspread.authorize(credentials)
-gauth = GoogleAuth()
-drive = GoogleDrive(gauth)
+#gc = gspread.authorize(credentials)
+#gauth = GoogleAuth()
+#drive = GoogleDrive(gauth)
 
 # open a google sheet
 
@@ -132,43 +132,59 @@ with st.sidebar:
                     
                     if (num000000==spd):
 
-                        url1= 'https://docs.google.com/spreadsheets/d/1zX0B7Iztun5l86Tj9zvaoPGz12InsUSCgI-na5aMN_s/edit#gid=2048497992'
-                        url2= 'https://docs.google.com/spreadsheets/d/1zX0B7Iztun5l86Tj9zvaoPGz12InsUSCgI-na5aMN_s/edit#gid=1914814158'
+                        #url1= 'https://docs.google.com/spreadsheets/d/1zX0B7Iztun5l86Tj9zvaoPGz12InsUSCgI-na5aMN_s/edit#gid=2048497992'
+                        #url2= 'https://docs.google.com/spreadsheets/d/1zX0B7Iztun5l86Tj9zvaoPGz12InsUSCgI-na5aMN_s/edit#gid=1914814158'
                         @st.cache(allow_output_mutation=True)
                         @st.cache(suppress_st_warning=True)
                         #@st.cache(hash_funcs={_cffi_backend.__CDataGCP: my_hash_func})
-                        def workshee_1(url_1,sheet_1):
-                            try:
-                                gs = gc.open_by_url(url_1)# select a work sheet from its name
-                                return gs.worksheet(sheet_1)
-                            except gspread.exceptions.APIError as error:
-                                st.write("در حال حاضر، ارتباط با داده های معیار به زمان بیشتری  نیاز دارد. لطفا کمی بعدتر، دوباره تلاش کنید")
-                                st.stop()
+                        def getPandasfromMtabl (Mtable):
+                            engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+                            dbConnection= engine.connect()
+                            return pd.read_sql("select * from Mtable", dbConnection)
+                        @st.cache(allow_output_mutation=True)
+                        @st.cache(suppress_st_warning=True)
+                        def getPandasfromFtabl (Ftable):
+                            engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+                            dbConnection= engine.connect()
+                            return pd.read_sql("select * from Ftable", dbConnection)
+                        #def workshee_1(url_1,sheet_1):
+                            #try:
+                                #gs = gc.open_by_url(url_1)# select a work sheet from its name
+                                #return gs.worksheet(sheet_1)
+                            #except gspread.exceptions.APIError as error:
+                                #st.write("در حال حاضر، ارتباط با داده های معیار به زمان بیشتری  نیاز دارد. لطفا کمی بعدتر، دوباره تلاش کنید")
+                                #st.stop()
                         @st.cache(allow_output_mutation=True)
                         @st.cache(suppress_st_warning=True)
                         #@st.cache(hash_funcs={_cffi_backend.__CDataGCP: my_hash_func})
-                        def workshee_2(url_2,sheet_2):
-                            try:
-                                gs = gc.open_by_url(url_2)# select a work sheet from its name
-                                return gs.worksheet(sheet_2) 
-                            except gspread.exceptions.APIError as error:
-                                st.write("در حال حاضر، ارتباط با داده های معیار به زمان بیشتری  نیاز دارد. لطفا کمی بعدتر، دوباره تلاش کنید")
-                                st.stop()
-                        wor1=workshee_1(url1,'Sheet1')#nnnn
-                        wor2=workshee_2(url2,'Sheet2')
-                        exist = get_as_dataframe(wor1 )
-                        exist_2 = get_as_dataframe(wor2 )
+                        #def workshee_2(url_2,sheet_2):
+                            #try:
+                                #gs = gc.open_by_url(url_2)# select a work sheet from its name
+                                #return gs.worksheet(sheet_2) 
+                            #except gspread.exceptions.APIError as error:
+                                #st.write("در حال حاضر، ارتباط با داده های معیار به زمان بیشتری  نیاز دارد. لطفا کمی بعدتر، دوباره تلاش کنید")
+                                #st.stop()
+                        #wor1=workshee_1(url1,'Sheet1')#nnnn
+                        #wor2=workshee_2(url2,'Sheet2')
+                        exist = getPandasfromFtabl F
+                        exist_2 = getPandasfromMtabl Male
                         w1=num444444 in exist['id'].values
                         w2=num444444 in exist_2['id'].values
                         if w1:
                             ix=exist.loc[exist['id']==num444444].index.tolist()
                             exist=exist.drop(ix)
-                            set_with_dataframe(worksheet=wor1, dataframe=exist, include_index=False,include_column_header=True, resize=True)
+                            engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+            
+                            exist.to_sql(con=engine, name='F', if_exists='replace')#
+                            #set_with_dataframe(worksheet=wor1, dataframe=exist, include_index=False,include_column_header=True, resize=True)
                             st.write('درخواست با موفقیت انجام شد')
                         if w2:
                             ix=exist_2.loc[exist_2['id']==num444444].index.tolist()
                             exist_2=exist_2.drop(ix)
-                            set_with_dataframe(worksheet=wor2, dataframe=exist_2, include_index=False,include_column_header=True, resize=True)
+                            engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+            
+                            exist_2.to_sql(con=engine, name='Male', if_exists='replace')#
+                            #set_with_dataframe(worksheet=wor2, dataframe=exist_2, include_index=False,include_column_header=True, resize=True)
                             st.write('درخواست با موفقیت انجام شد')
 #credentials = Credentials.from_service_account_info(st.secrets["gcp"], scopes=scopes)
 
@@ -205,60 +221,40 @@ filename = 'MeYar '
 
 
 
-@st.cache(allow_output_mutation=True)
+#@st.cache(allow_output_mutation=True)
 
-def worksheet_1(url_1,sheet_1):
-  x = 0
-  while True:
-    try:
-      gs = gc.open_by_url(url_1)
-      return gs.worksheet(sheet_1)
-    except gspread.exceptions.APIError as error:
-      if x == retries:
-        st.write("در حال حاضر، ارتباط با داده های معیار به زمان بیشتری  نیاز دارد. لطفا کمی بعدتر، دوباره تلاش کنید")
-        st.stop()
+#def worksheet_1(url_1,sheet_1):
+  #x = 0
+  #while True:
+    #try:
+      #gs = gc.open_by_url(url_1)
+      #return gs.worksheet(sheet_1)
+    #except gspread.exceptions.APIError as error:
+      #if x == retries:
+        #st.write("در حال حاضر، ارتباط با داده های معیار به زمان بیشتری  نیاز دارد. لطفا کمی بعدتر، دوباره تلاش کنید")
+        #st.stop()
       
-      sleep = (wait_time * 2 ** x + random.uniform(0, 1))
-      time.sleep(sleep)
+      #sleep = (wait_time * 2 ** x + random.uniform(0, 1))
+      #time.sleep(sleep)
       
-      x += 1
+      #x += 1
 filename = 'MeYar '
 @st.cache(allow_output_mutation=True)
+def getPandasfromMtable (Mtable):
+    engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+    dbConnection= engine.connect()
+    return pd.read_sql("select * from Mtable", dbConnection)
+@st.cache(allow_output_mutation=True)
+def getPandasfromFtable (Ftable):
+    engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+    dbConnection= engine.connect()
+    return pd.read_sql("select * from Ftable", dbConnection)
+@st.cache(allow_output_mutation=True)
 
-def worksheet_2(url_2,sheet_2):
-  x = 0
-  while True:
-    try:
-      gs = gc.open_by_url(url_2)
-      return gs.worksheet(sheet_2)
-    except gspread.exceptions.APIError as error:
-      if x == retries:
-        st.write("در حال حاضر، ارتباط با داده های معیار به زمان بیشتری  نیاز دارد. لطفا کمی بعدتر، دوباره تلاش کنید")
-        st.stop()
-      sleep = (wait_time * 2 ** x + random.uniform(0, 1))
-      time.sleep(sleep)
-      
-      x += 1  
+  
 num0=num0.lower()
 
-#@st.cache(allow_output_mutation=True)
-#@st.cache(suppress_st_warning=True)
-#def worksheet_1(url_1,sheet_1):
-    #try:
-        #gs = gc.open_by_url(url_1)# select a work sheet from its name
-        #return gs.worksheet(sheet_1)
-    #except gspread.exceptions.APIError as error:
-        #st.write("در حال حاضر، ارتباط با داده های معیار به زمان بیشتری  نیاز دارد. لطفا کمی بعدتر، دوباره تلاش کنید")
-        #st.stop()
-#@st.cache(allow_output_mutation=True)
-#@st.cache(suppress_st_warning=True)
-#def worksheet_2(url_2,sheet_2):
-    #try:
-        #gs = gc.open_by_url(url_2)# select a work sheet from its name
-        #return gs.worksheet(sheet_2)  
-    #except gspread.exceptions.APIError as error:
-        #st.write("در حال حاضر، ارتباط با داده های معیار به زمان بیشتری  نیاز دارد. لطفا کمی بعدتر، دوباره تلاش کنید")
-        #st.stop()
+
                 
                 
 @st.cache(suppress_st_warning=True)               
@@ -291,14 +287,7 @@ while not num00:
         if 1==1:
             
                  st.stop()
-#st.markdown(sp) 
 
-
-#@st.cache(allow_output_mutation=False)
-#def randd (x):
-    #return 
-
-#rrr=randd(1)
 def common_member(a, b):
     a_set = set(a)
     b_set = set(b)
@@ -308,43 +297,35 @@ def common_member(a, b):
         return False
 
  
-    #gs_6=gc.open_by_url('https://docs.google.com/spreadsheets/d/1zX0B7Iztun5l86Tj9zvaoPGz12InsUSCgI-na5aMN_s/edit#gid=1211787896')
-url1= 'https://docs.google.com/spreadsheets/d/1zX0B7Iztun5l86Tj9zvaoPGz12InsUSCgI-na5aMN_s/edit#gid=2048497992'
-url2= 'https://docs.google.com/spreadsheets/d/1zX0B7Iztun5l86Tj9zvaoPGz12InsUSCgI-na5aMN_s/edit#gid=1914814158'
+    
     
 
 
 
-#if eval (num00)!=randd(1):
-   # st.write(eval (num00))
-   # st.write(randd(1))
 
-#cloned_output = copy.deepcopy(my_cached_function(...))
+
+
 if (num00==sp):
-    #exi = get_as_dataframe(worksheet_1(url1,'Sheet1') )
-    #exii_past = get_as_dataframe(worksheet_2(url2,'Sheet2'))
-    engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+    
+    
 
-    dbConnection= engine.connect()
-
-    exii= pd.read_sql("select * from Male", dbConnection)
-    exi=pd.read_sql("select * from F", dbConnection)
+    exii= getPandasfromMtable Male
+    exi=  getPandasfromFtable F
     
     w1=num0 in exi['id'].values
     if w1:
-        #st.write(111111111111111111)
+        
         ex=exi.loc[exi['id']==num0]
         ix = exi.loc[exi['id']==num0].index.tolist()
-        #lll=1
+        
     w2=num0 in exii['id'].values
     if w2:
-        #st.write(22222222222222222)
+        
         ex=exii.loc[exii['id']==num0]
         ix = exii.loc[exii['id']==num0].index.tolist()
-        #lll=2
+        
     W=w1 or w2   
-    #exi_2.loc[0,'column']
-    #exii_2.loc[0,'column']
+    
     st.markdown("<h3 style='text-align: center;'>معیارهای خود را برای انتخاب فرد مناسب خود وارد کنید</h3>", unsafe_allow_html=True )
 
     if W:
@@ -1723,34 +1704,13 @@ if (num00==sp):
         st.stop()
 
 
-    #st.dataframe(males_table)
-            #.add_node(IsBiamrKhas) \
-            #.add_node(IsMalool) \
-    #join_tree.unobserve_all()
-    #st.write('result: %s' % str(result))
-
-    #if 'vvc' not in st.session_state:
-            #st.session_state['vvc'] =0
-    #if  st.session_state['vvc'] ==0:
-            #st.session_state['m_table'] = pd.DataFrame({'id':[],'family_job':[],'age':[],'family_wealth':[] ,'family_number':[],'living_location':[],'academic_level':[] ,'hight':[], 'face_color':[],'weight':[] ,'nose':[] ,'eyes':[] ,'smoke':[] ,'drink':[] ,'disability':[] ,'divorsed_member':[] ,'delict_member':[] ,'drog_member':[],'social_att':[] ,'mental_att':[] ,'beleifs':[] ,'house_ownership':[] ,'auto_ownership':[] ,'employment':[] ,'marriage_exp':[] ,'want_children':[]})
-
-
-
-
-
-    #num100 = st.selectbox(q, ('مرد',' زن'), key="100")
-    #button = st.button('press me')
+    
     hisher_basket=[]
     my_basket=[]
     if p:
-        worksheet1=worksheet_1(url1,'Sheet1')
-        worksheet2=worksheet_2(url2,'Sheet2')
-        #existing = get_as_dataframe(worksheet1 )
-        #existing_2 = get_as_dataframe(worksheet2 )
-        engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-        dbConnection= engine.connect()
-        existing_2= pd.read_sql("select * from Male", dbConnection)
-        existing=pd.read_sql("select * from F", dbConnection)
+        
+        existing_2= getPandasfromMtable Male
+        existing=   getPandasfromFtable F
 
         if W:
 
@@ -1758,61 +1718,43 @@ if (num00==sp):
                     existing=existing.drop(ix)
                     #st.write(1111111111111111111)
                     if n100 != ex.iloc[0]['gender']:
-                        set_with_dataframe(worksheet=worksheet1, dataframe=existing, include_index=False,include_column_header=True, resize=True)
+                        
+                        engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+                        existing.to_sql(con=engine, name='Male', if_exists='replace')
                 if w2:
                     existing_2=existing_2.drop(ix)
                     #st.write(22222222222222222222)
                     if n100 != ex.iloc[0]['gender']:
-                        set_with_dataframe(worksheet=worksheet2, dataframe=existing_2, include_index=False,include_column_header=True, resize=True)
+                        
+                        engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+                        existing_2.to_sql(con=engine, name='F', if_exists='replace')
 
         if n100 !='مرد':
-            #worksheet1=worksheet_1(url1,'Sheet1')
-            #existing = get_as_dataframe(worksheet1 )
+            
             df_1=pd.DataFrame({'id': [num0], 'gender':[n100],'degree':[num8765],'c_kadu':[n2222],'c_hair':[n150],'c_hair_det':[num150],'hair':[num1500],'c_negah':[n313],'c_negah_det':[num313],'negah':[n3130],'c_harf':[n413],'c_harf_det':[num413],'harf':[n4130],'c_bakh':[n213],'c_bakh_det':[num213],'bakh':[n2130],'c_dur':[n222],'c_dur_det':[num222],'c_ramezan':[n999],'c_ramezan_det':[num999],'ramezan':[num9999],'c_vas':[n8000],'vas':[num80000],'c_des':[n7000],'c_des_det':[num7000],'des':[num70000],'c_nava':[n6000],'c_nava_det':[num6000],'c_doa':[n1012],'c_music':[n1013],'doa':[n10012],'music':[n10013],'c_family_number':[n5000],'c_family_number_det':[num5000],'family_number':[n50000],'c_humor':[n1010],'humor':[n10010],'c_eg':[n3000],'eg':[n30000],'c_il':[n2000],'c_il_det':[num2000],'c_mood':[n1011],'c_mood_det':[num1011],'mood':[num10011],'c_moh':[n1009],'moh':[n10009],'c_food':[n1005],'food':[n10005],'c_zaher':[n1006],'zaher':[n10006],'c_study':[n1007],'study':[n10007],'c_din':[n1008],'din':[n10008],'c_sport':[n1000],'c_sport_det':[num1000],'sport':[n10000],'c_money':[n1001],'c_money_det':[num1001],'money':[n10001],'c_politic':[n1002],'c_politic_det':[num1002],'politic':[n10002],'c_fd':[n1003],'fd':[n10003],'c_fj':[n1004],'fj':[n10004],'c_min_age':[num7],'c_max_age':[num8],'c_family_wealth':[n1],'c_family_wealth_det':[num1],'c_philo':[n2],'c_philo_det':[num2],'c_living_location':[n9],'c_living_location_det':[num9],'c_academic_level':[n10],'c_academic_level_det':[num10],'c_hight_min':[num11],'c_hight_max':[num12],'c_face_color':[n13],'c_face_det':[num13],'c_weight':[n14], 'c_weight_det':[num14],'c_nose':[n15], 'c_nose_det':[num15],'c_eyes':[n16],'c_eyes_det':[num16],'c_smoke':[n27],'c_smoke_det':[num27],'c_drink':[n28],'c_drink_det':[num28],'c_disability':[n17],'c_disability_det':[num17],'c_major':[n3],'c_major_det':[num3],'c_program':[n4],'c_program_det':[num4], 'c_mistake':[n5], 'c_mistake_det':[num5],'c_social_att':[n18],'c_social_att_det':[num18], 'c_mental_att':[n25],'c_mental_att_det':[num25],'c_beleifs':[n19],'c_beleifs_det':[num19],'c_house_ownership':[n22],'c_house_ownership_det':[num22],'c_auto_ownership':[n23],'c_auto_ownership_det':[num23],'c_employment':[n24],'c_employment_det':[num24],'c_marriage_exp':[n20], 'c_marriage_exp_det':[num20],'c_want_children':[n21],'c_want_children_det':[num21],'c_family_job':[n6],'c_family_job_det':[num6],  'family_job':[n106],'age':[num107],'family_wealth':[n101] ,'philo':[n102],'living_location':[n109],'academic_level':[n110] ,'hight':[num111], 'face_color':[num112],'weight':[num113] ,'nose':[num114] ,'eyes':[num115] ,'smoke':[num127] ,'drink':[num128] ,'disability':[num116] ,'major':[n103] ,'program':[n104] ,'mistake':[n105] ,'social_att':[num118] ,'mental_att':[num119] ,'beleifs':[num120] ,'house_ownership':[n121] ,'auto_ownership':[n122],'employment':[n123] ,'marriage_exp':[n20] ,'want_children':[n21]})        
 
             existing = existing.append(df_1)###
-            set_with_dataframe(worksheet=worksheet1, dataframe=existing, include_index=False,include_column_header=True, resize=True)
-            #df_1s = df_1
-            #df_2s=df_2
-            #for col in df_1s.columns:
-                
-                #df_1s[col] = df_1s[col].astype('string')
+            
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
             existing.to_sql(con=engine, name='F', if_exists='replace')#
-            #df_1s.to_sql('FF', con=engine)
-        #worksheet1.clear()
-        #worksheet6 = gs_6.worksheet('Sheet6')
+            
         if n100 =='مرد':
-            #worksheet2=worksheet_2(url2,'Sheet2')
-            #existing_2 = get_as_dataframe(worksheet2 )
-        #)# write to dataframe
+            
 
             df_2=pd.DataFrame({'id': [num0], 'gender':[n100],'degree':[num8765],'c_kadu':[n2222],'c_hair':[n150],'c_hair_det':[num150],'hair':[num1500],'c_negah':[n313],'c_negah_det':[num313],'negah':[n3130],'c_harf':[n413],'c_harf_det':[num413],'harf':[n4130],'c_bakh':[n213],'c_bakh_det':[num213],'bakh':[n2130],'c_dur':[n222],'c_dur_det':[num222],'c_ramezan':[n999],'c_ramezan_det':[num999],'ramezan':[num9999],'c_vas':[n8000],'vas':[num80000],'c_des':[n7000],'c_des_det':[num7000],'des':[num70000],'c_nava':[n6000],'c_nava_det':[num6000],'c_doa':[n1012],'c_music':[n1013],'doa':[n10012],'music':[n10013],'c_family_number':[n5000],'c_family_number_det':[num5000],'family_number':[n50000],'c_humor':[n1010],'humor':[n10010],'c_eg':[n3000],'eg':[n30000],'c_il':[n2000],'c_il_det':[num2000],'c_mood':[n1011],'c_mood_det':[num1011],'mood':[num10011],'c_moh':[n1009],'moh':[n10009],'c_food':[n1005],'food':[n10005],'c_zaher':[n1006],'zaher':[n10006],'c_study':[n1007],'study':[n10007],'c_din':[n1008],'din':[n10008],'c_sport':[n1000],'c_sport_det':[num1000],'sport':[n10000],'c_money':[n1001],'c_money_det':[num1001],'money':[n10001],'c_politic':[n1002],'c_politic_det':[num1002],'politic':[n10002],'c_fd':[n1003],'fd':[n10003],'c_fj':[n1004],'fj':[n10004],'c_min_age':[num7],'c_max_age':[num8],'c_family_wealth':[n1],'c_family_wealth_det':[num1],'c_philo':[n2],'c_philo_det':[num2],'c_living_location':[n9],'c_living_location_det':[num9],'c_academic_level':[n10],'c_academic_level_det':[num10],'c_hight_min':[num11],'c_hight_max':[num12],'c_face_color':[n13],'c_face_det':[num13],'c_weight':[n14], 'c_weight_det':[num14],'c_nose':[n15], 'c_nose_det':[num15],'c_eyes':[n16],'c_eyes_det':[num16],'c_smoke':[n27],'c_smoke_det':[num27],'c_drink':[n28],'c_drink_det':[num28],'c_disability':[n17],'c_disability_det':[num17],'c_major':[n3],'c_major_det':[num3],'c_program':[n4],'c_program_det':[num4], 'c_mistake':[n5], 'c_mistake_det':[num5],'c_social_att':[n18],'c_social_att_det':[num18], 'c_mental_att':[n25],'c_mental_att_det':[num25],'c_beleifs':[n19],'c_beleifs_det':[num19],'c_house_ownership':[n22],'c_house_ownership_det':[num22],'c_auto_ownership':[n23],'c_auto_ownership_det':[num23],'c_employment':[n24],'c_employment_det':[num24],'c_marriage_exp':[n20], 'c_marriage_exp_det':[num20],'c_want_children':[n21],'c_want_children_det':[num21],'c_family_job':[n6],'c_family_job_det':[num6],  'family_job':[n106],'age':[num107],'family_wealth':[n101] ,'philo':[n102],'living_location':[n109],'academic_level':[n110] ,'hight':[num111], 'face_color':[num112],'weight':[num113] ,'nose':[num114] ,'eyes':[num115] ,'smoke':[num127] ,'drink':[num128] ,'disability':[num116] ,'major':[n103] ,'program':[n104] ,'mistake':[n105] ,'social_att':[num118] ,'mental_att':[num119] ,'beleifs':[num120] ,'house_ownership':[n121] ,'auto_ownership':[n122],'employment':[n123] ,'marriage_exp':[n20] ,'want_children':[n21]})         
             existing_2 = existing_2.append(df_2)###
-            set_with_dataframe(worksheet=worksheet2, dataframe=existing_2, include_index=False,include_column_header=True, resize=True)
+            
             #data = {"calories": [420, 380, 390],"duration": [50, 40, 45]}
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
             existing_2.to_sql(con=engine, name='Male', if_exists='replace')#
-            #df_2s=df_2
-            #for col in df_2s.columns:
-                
-                #df_2s[col] = df_2s[col].astype('string')
             
-            #df_2s.to_sql('MM', con=engine)
-            
-# Convert dataframe to sql table                                   
-
-    
-    #new_df= df
-        #new_df_6=df_6
 
 
         if n100 =='مرد':
-            worksheet1=worksheet_1(url1,'Sheet1')
-            #e_1=get_as_dataframe(worksheet1 )
-            engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-            dbConnection= engine.connect()
-            e_1=pd.read_sql("select * from F", dbConnection)
+            
+            
+            
+            e_1=getPandasfromFtable F
             le_1=len(e_1)
 
             basket=[]
@@ -2438,11 +2380,11 @@ if (num00==sp):
             exii=pd.read_sql("select * from Mal", dbConnection)
                 #exi.loc['id', 'candidate_list'] = str(basket)
             exii.loc[exii['id']==num0, ['candidate_list']] = str(basket)
-            worksheet2=worksheet_2(url2,'Sheet2')
+            
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
             
-            exii.to_sql(con=engine, name='Male', if_exists='replace')#
-            set_with_dataframe(worksheet=worksheet2, dataframe=exii, include_index=False,include_column_header=True, resize=True)
+            exii.to_sql(con=engine, name='Male', if_exists='replace')
+            
 
 
 
@@ -2450,11 +2392,9 @@ if (num00==sp):
 
 
         if n100 !='مرد':
-            worksheet2=worksheet_2(url2,'Sheet2')
-            #e_2=get_as_dataframe(worksheet2)
-            engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-            dbConnection= engine.connect()
-            e_2=pd.read_sql("select * from Mal", dbConnection)
+            
+            
+            e_2=getPandasfromMtable Male
             le_2=len(e_2)
             basket=[]
             for i in range(0, le_2):
@@ -3078,30 +3018,17 @@ if (num00==sp):
             exi=pd.read_sql("select * from F", dbConnection)
                 #exi.loc['id', 'candidate_list'] = str(basket)
             exi.loc[exi['id']==num0, ['candidate_list']] = str(basket)
-            worksheet1=worksheet_1(url1,'Sheet1')
+            
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
             exi.to_sql(con=engine, name='F', if_exists='replace')#
-            set_with_dataframe(worksheet=worksheet1, dataframe=exi, include_index=False,include_column_header=True, resize=True)
             
             
             
             
             
             
-        #n10 = st.selectbox(q,('این معیار برای من اهمیتی ندارد',' دکترا',' فوق لیسانس','لیسانس'))'auto_ownership':[] ,'employment'  want_children
-        #n110 = st.selectbox(q,(' دکترا',' فوق لیسانس','لیسانس'))
-        #n102 = st.selectbox(q,(' نسبتا پر جمعیت است','نسبتا کم جمعیت است '))             
-        #n1 = st.selectbox(q,('این معیار برای من اهمیتی ندارد','بایستی نسبتا غنی و متمول باشند','متوسط به بالا باشند','اگر فقیرباشند نیزمشکلی ندارم'))family_number
-    #n101 = st.selectbox(q,(' نسبتا غنی و متمول است','متوسط به بالا است',' فقیر است ')) 
-    #if n1!='این معیار برای من اهمیتی ندارد':
-        #q='آیا پاسخ شما، معیاری قطعی برای شماست؟'
-        #num1 = st.selectbox(q, ('خیر','بله'), key="1")
-        #set_with_dataframe(worksheet=worksheet6, dataframe=existing_6, include_index=False,
-        #include_column_header=True, resize=True)
-        #st.session_state['vvc'] += 1   
-        #if st.session_state['vvc'] >0:
-                    #info = {'id': float(num0),'family_job':n106,'age':num107,'family_wealth':n101 ,'family_number':n102,'living_location':n109,'academic_level':n110 ,'hight':num111, 'face_color':num112,'weight':num113 ,'nose':num114 ,'eyes':num115 ,'smoke':num127 ,'drink':num128 ,'disability':num116 ,'divorsed_member':n103 ,'delict_member':n104 ,'drog_member':n105 ,'social_att':num118 ,'mental_att':num119 ,'beleifs':num120 ,'house_ownership':n121 ,'auto_ownership':n122,'employment':n123 ,'marriage_exp':n20 ,'want_children':n21}
-                    #st.session_state['m_table'] =st.session_state['m_table'].append(info, ignore_index = True)
+            
+        
 
 
 
@@ -3114,7 +3041,7 @@ if (num00==sp):
     result = {'شما':num0 , 'دیگران در نگاه شما': my_basket,'شما در نگاه دیگران': hisher_basket}
     re = pd.DataFrame(result)
     st.dataframe(re)  
-    st.dataframe(exii)
+    #st.dataframe(exii)
     #st.dataframe(exi)
 #st.success("")
     
@@ -3129,17 +3056,6 @@ if (num00==sp):
     st.write("")
     st.write("")
     st.write("")
-    st.write("")
-    st.write("")
-    #st.write(my_basket)
-    #st.write(hisher_basket)
     
-    ##if num100 !='مرد':
-        #exi = get_as_dataframe(worksheet1 )
-        #st.dataframe(exi.loc[exi['id']==float(num0), ['candidate_list']])
-    #if num100 =='مرد':
-        #exii = get_as_dataframe(worksheet2 )
-        #st.dataframe(exii.loc[exii['id']==float(num0), ['candidate_list']])
-     #st.dataframe(existing)#
 
 
