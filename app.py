@@ -2942,14 +2942,14 @@ if (num00==sp):
                     
                 #hisher_basket.append(li)
             
-            exi=pd.read_sql("select * from F", getPandasfromtable (1))
-                #exi.loc['id', 'candidate_list'] = str(basket)
-            exi.loc[exi['id']==num0, ['candidate_list']] = str(basket)
-            for col in exi.columns:
-                exi[col] = exi.astype('string')
+            ex=pd.read_sql("select * from F", getPandasfromtable (1))
+                
+            ex.loc[ex['id']==num0, ['candidate_list']] = str(basket)
+            for col in ex.columns:
+                ex[col] = ex.astype('string')
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
             
-            exi.to_sql(con=engine, name='F', if_exists='replace', index=False)#
+            ex.to_sql(con=engine, name='F', if_exists='replace', index=False)#
             
             
             
