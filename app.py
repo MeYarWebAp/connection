@@ -117,7 +117,7 @@ with st.sidebar:
                         
                         
                         
-                        def getPandasfromMtabl (x):
+                        def getPandasfromtabl (x):
                             x=x+1
                             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
                             dbConnection= engine.connect()
@@ -126,17 +126,13 @@ with st.sidebar:
                         @st.cache(allow_output_mutation=True, hash_funcs={"_thread.RLock": lambda _: None})
 
                         
-                        def getPandasfromFtabl (x):
-                            x=x+1
-                            engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-                            dbConnection= engine.connect()
-                            return dbConnection
+                        
                             #
                         
                         
                         
-                        exist = pd.read_sql("select * from F", getPandasfromFtabl (1))
-                        exist_2 = pd.read_sql("select * from Mard", getPandasfromMtabl (1))
+                        exist = pd.read_sql("select * from F", getPandasfromtabl (1))
+                        exist_2 = pd.read_sql("select * from Male", getPandasfromtabl (1))
                         w1=num444444 in exist['id'].values
                         w2=num444444 in exist_2['id'].values
                         if w1:
@@ -179,7 +175,7 @@ filename = 'MeYar '
 
 
 
-def getPandasfromMtable (x):
+def getPandasfromtable (x):
     x=x+1
     engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
     dbConnection= engine.connect()
@@ -188,11 +184,7 @@ def getPandasfromMtable (x):
 
 
 
-def getPandasfromFtable (x):
-    x=x+1
-    engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-    dbConnection= engine.connect()
-    return dbConnection
+
 
 
   
@@ -253,8 +245,8 @@ if (num00==sp):
     
     
 
-    exii=  pd.read_sql("select * from Mard", getPandasfromMtable (1))
-    exi=   pd.read_sql("select * from F", getPandasfromFtable (1))
+    exii=  pd.read_sql("select * from Male", getPandasfromtable (1))
+    exi=   pd.read_sql("select * from F", getPandasfromtable (1))
     
     w1=num0 in exi['id'].values
     if w1:
@@ -1644,8 +1636,8 @@ if (num00==sp):
     my_basket=[]
     if p:
         
-        existing_2= pd.read_sql("select * from Mard", getPandasfromMtable (1))
-        existing=   pd.read_sql("select * from F", getPandasfromMtable (1))
+        existing_2= pd.read_sql("select * from Male", getPandasfromtable (1))
+        existing=   pd.read_sql("select * from F", getPandasfromtable (1))
 
         if W:
 
@@ -1693,7 +1685,7 @@ if (num00==sp):
             
             
             
-            e_1=pd.read_sql("select * from F", getPandasfromMtable (1))
+            e_1=pd.read_sql("select * from F", getPandasfromtable (1))
             le_1=len(e_1)
 
             basket=[]
@@ -2316,14 +2308,14 @@ if (num00==sp):
                     #hisher_basket.append(edited_li)
                     #my_basket.append(candidate)
             #exii = get_as_dataframe(worksheet2 )
-            exii=pd.read_sql("select * from Mal", dbConnection)
+            exii=pd.read_sql("select * from Male", dbConnection)
                 #exi.loc['id', 'candidate_list'] = str(basket)
             exii.loc[exii['id']==num0, ['candidate_list']] = str(basket)
             for col in exii.columns:
                 exii[col] = exii[col].astype('string')
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
             exii.reset_index(drop=True)
-            exii.to_sql(con=engine, name='Mard', if_exists='replace')
+            exii.to_sql(con=engine, name='Male', if_exists='replace')
             
 
 
@@ -2334,7 +2326,7 @@ if (num00==sp):
         if n100 !='مرد':
             
             
-            e_2=pd.read_sql("select * from Mard", getPandasfromMtable (1))
+            e_2=pd.read_sql("select * from Male", getPandasfromtable (1))
             le_2=len(e_2)
             basket=[]
             for i in range(0, le_2):
