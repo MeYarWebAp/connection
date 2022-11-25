@@ -115,17 +115,20 @@ with st.sidebar:
                         @st.cache(allow_output_mutation=True)
                         
                         
-                        def getPandasfromMtabl (x):
+                        def getConnection (x):
                             x=x+1
                             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-                            dbConnection= engine.connect()
+                            return engine
+                        @st.cache(allow_output_mutation=True)
+                        def getPandasfromMtabl (x):
+                            x=x+1
+                            dbConnection= getConnection(1).connect()
                             return pd.read_sql("select * from Mtable", dbConnection)
                         @st.cache(allow_output_mutation=True)
                         
                         def getPandasfromFtabl (x):
                             x=x+1
-                            engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-                            dbConnection= engine.connect()
+                            dbConnection= getConnection(1).connect()
                             return pd.read_sql("select * from Ftable", dbConnection)
                         
                         
@@ -166,17 +169,22 @@ while not num0:
 filename = 'MeYar '
 @st.cache(allow_output_mutation=True)
 
-def getPandasfromMtable (x):
+def getConnection (x):
     x=x+1
     engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-    dbConnection= engine.connect()
+    return engine
+@st.cache(allow_output_mutation=True)
+
+def getPandasfromMtable (x):
+    x=x+1
+    
+    dbConnection= getConnection (1).connect()
     return pd.read_sql("select * from Mtable", dbConnection)
 @st.cache(allow_output_mutation=True)
 
 def getPandasfromFtable (x):
     x=x+1
-    engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-    dbConnection= engine.connect()
+    dbConnection= getConnection (1).connect()
     return pd.read_sql("select * from Ftable", dbConnection)
 
 
