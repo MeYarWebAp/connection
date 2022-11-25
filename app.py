@@ -321,7 +321,7 @@ url2= 'https://docs.google.com/spreadsheets/d/1zX0B7Iztun5l86Tj9zvaoPGz12InsUSCg
 #cloned_output = copy.deepcopy(my_cached_function(...))
 if (num00==sp):
     #exi = get_as_dataframe(worksheet_1(url1,'Sheet1') )
-    exii_past = get_as_dataframe(worksheet_2(url2,'Sheet2'))
+    #exii_past = get_as_dataframe(worksheet_2(url2,'Sheet2'))
     engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
 
     dbConnection= engine.connect()
@@ -1744,9 +1744,10 @@ if (num00==sp):
     if p:
         worksheet1=worksheet_1(url1,'Sheet1')
         worksheet2=worksheet_2(url2,'Sheet2')
-        existing = get_as_dataframe(worksheet1 )
-        existing_2 = get_as_dataframe(worksheet2 )
-
+        #existing = get_as_dataframe(worksheet1 )
+        #existing_2 = get_as_dataframe(worksheet2 )
+        existing_2= pd.read_sql("select * from M", dbConnection)
+        existing=pd.read_sql("select * from F", dbConnection)
 
         if W:
 
@@ -3093,7 +3094,7 @@ if (num00==sp):
     re = pd.DataFrame(result)
     st.dataframe(re)  
     st.dataframe(exii)
-    st.dataframe(exii_past)
+    #st.dataframe(exii_past)
 #st.success("")
     
     st.write("")
