@@ -119,12 +119,12 @@ with st.sidebar:
                             x=x+1
                             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
                             return engine
-                        @st.cache(allow_output_mutation=True)
+                        st.cache(hash_funcs={sqlalchemy.engine.base.Engine: id})
                         def getPandasfromMtabl (x):
                             x=x+1
                             dbConnection= getConnection(1).connect()
                             return pd.read_sql("select * from Mtable", dbConnection)
-                        @st.cache(allow_output_mutation=True)
+                        st.cache(hash_funcs={sqlalchemy.engine.base.Engine: id})
                         
                         def getPandasfromFtabl (x):
                             x=x+1
@@ -173,14 +173,14 @@ def getConnection (x):
     x=x+1
     engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
     return engine
-@st.cache(allow_output_mutation=True)
+st.cache(hash_funcs={sqlalchemy.engine.base.Engine: id})
 
 def getPandasfromMtable (x):
     x=x+1
     
     dbConnection= getConnection (1).connect()
     return pd.read_sql("select * from Mtable", dbConnection)
-@st.cache(allow_output_mutation=True)
+st.cache(hash_funcs={sqlalchemy.engine.base.Engine: id})
 
 def getPandasfromFtable (x):
     x=x+1
