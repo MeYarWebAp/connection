@@ -9,6 +9,7 @@ import sqlalchemy
 import pymysql
 from sqlalchemy import create_engine
 import cryptography
+import mysql.connector
 import time
 import base64
 import streamlit as st
