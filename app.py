@@ -2293,9 +2293,9 @@ if (num00==sp):
 
                     li=eval(e_1.iloc[i]['candidate_list'])
                     #edited_li=[]
-                    st.write(li)
+                    #st.write(li)
                     for j in li:
-                        st.write(j)
+                        #st.write(j)
                         if j[0]== num0:
                             #edited_li.append([j[0],j[1]])
                             hisher_basket.append([j[0],j[1]])
@@ -2306,8 +2306,8 @@ if (num00==sp):
             exii=pd.read_sql("select * from M", getPandasfromtable (1))
                 #exi.loc['id', 'candidate_list'] = str(basket)
             exii.loc[exii['id']==num0, ['candidate_list']] = str(basket)
-            for col in exii.columns:
-                exii[col] = exii[col].astype('string')
+            exii=exii.applymap(str)
+                
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
             
             exii.to_sql(con=engine, name='M', if_exists='replace', index=False)
