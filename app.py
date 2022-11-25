@@ -112,7 +112,8 @@ with st.sidebar:
                     if (num000000==spd):
 
                         
-                        @st.cache(allow_output_mutation=True)
+                        @st.cache(allow_output_mutation=True, hash_funcs={"_thread.RLock": lambda _: None})
+
                         
                         
                         
@@ -121,7 +122,8 @@ with st.sidebar:
                             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
                             dbConnection= engine.connect()
                             return pd.read_sql("select * from Mtable", dbConnection)
-                        @st.cache(allow_output_mutation=True)
+                        @st.cache(allow_output_mutation=True, hash_funcs={"_thread.RLock": lambda _: None})
+
                         
                         def getPandasfromFtabl (x):
                             x=x+1
@@ -165,19 +167,21 @@ while not num0:
                  st.stop()
 
 filename = 'MeYar '
-#@st.cache(allow_output_mutation=True)
 
 
-@st.cache(hash_funcs={'mysql': {'host': 'remote.runflare.com:31442', 'port': 31442, 'database': 'hamedmysopk_db', 'user': 'root', 'password': 'nw8277v9nxrxvi4'}})
+
+@st.cache(allow_output_mutation=True, hash_funcs={"_thread.RLock": lambda _: None})
+
 
 def getPandasfromMtable (x):
     x=x+1
     engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
     dbConnection= engine.connect()
     return pd.read_sql("select * from Mtable", dbConnection)
-@st.cache(hash_funcs={'mysql': {'host': 'remote.runflare.com:31442', 'port': 31442, 'database': 'hamedmysopk_db', 'user': 'root', 'password': 'nw8277v9nxrxvi4'}})
+@st.cache(allow_output_mutation=True, hash_funcs={"_thread.RLock": lambda _: None})
 
-#@st.cache(allow_output_mutation=True)
+
+
 def getPandasfromFtable (x):
     x=x+1
     engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
