@@ -115,21 +115,23 @@ with st.sidebar:
                         @st.cache(allow_output_mutation=True)
                         @st.cache(suppress_st_warning=True)
                         
-                        def getPandasfromMtabl ():
+                        def getPandasfromMtabl (x):
+                            x=x+1
                             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
                             dbConnection= engine.connect()
                             return pd.read_sql("select * from Mtable", dbConnection)
                         @st.cache(allow_output_mutation=True)
                         @st.cache(suppress_st_warning=True)
-                        def getPandasfromFtabl ():
+                        def getPandasfromFtabl (x):
+                            x=x+1
                             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
                             dbConnection= engine.connect()
                             return pd.read_sql("select * from Ftable", dbConnection)
                         
                         
                         
-                        exist = getPandasfromFtabl 
-                        exist_2 = getPandasfromMtabl 
+                        exist = getPandasfromFtabl 1
+                        exist_2 = getPandasfromMtabl 1
                         w1=num444444 in exist['id'].values
                         w2=num444444 in exist_2['id'].values
                         if w1:
@@ -163,12 +165,14 @@ while not num0:
 
 filename = 'MeYar '
 @st.cache(allow_output_mutation=True)
-def getPandasfromMtable ():
+def getPandasfromMtable (x):
+    x=x+1
     engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
     dbConnection= engine.connect()
     return pd.read_sql("select * from Mtable", dbConnection)
 @st.cache(allow_output_mutation=True)
-def getPandasfromFtable ():
+def getPandasfromFtable (x):
+    x=x+1
     engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
     dbConnection= engine.connect()
     return pd.read_sql("select * from Ftable", dbConnection)
@@ -232,8 +236,8 @@ if (num00==sp):
     
     
 
-    exii= getPandasfromMtable 
-    exi=  getPandasfromFtable
+    exii= getPandasfromMtable 1
+    exi=  getPandasfromFtable 1
     
     w1=num0 in exi['id'].values
     if w1:
@@ -1623,8 +1627,8 @@ if (num00==sp):
     my_basket=[]
     if p:
         
-        existing_2= getPandasfromMtable 
-        existing=   getPandasfromFtable 
+        existing_2= getPandasfromMtable 1 
+        existing=   getPandasfromFtable 1 
 
         if W:
 
@@ -1668,7 +1672,7 @@ if (num00==sp):
             
             
             
-            e_1=getPandasfromFtable 
+            e_1=getPandasfromFtable 1 
             le_1=len(e_1)
 
             basket=[]
@@ -2308,7 +2312,7 @@ if (num00==sp):
         if n100 !='مرد':
             
             
-            e_2=getPandasfromMtable
+            e_2=getPandasfromMtable 1
             le_2=len(e_2)
             basket=[]
             for i in range(0, le_2):
