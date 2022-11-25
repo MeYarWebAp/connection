@@ -2303,7 +2303,7 @@ if (num00==sp):
                     #hisher_basket.append(edited_li)
                     #my_basket.append(candidate)
             #exii = get_as_dataframe(worksheet2 )
-            exii=pd.read_sql("select * from Male", dbConnection)
+            exii=pd.read_sql("select * from Male", getPandasfromtable (1))
                 #exi.loc['id', 'candidate_list'] = str(basket)
             exii.loc[exii['id']==num0, ['candidate_list']] = str(basket)
             for col in exii.columns:
@@ -2942,7 +2942,7 @@ if (num00==sp):
                     
                 #hisher_basket.append(li)
             
-            exi=pd.read_sql("select * from F", dbConnection)
+            exi=pd.read_sql("select * from F", getPandasfromtable (1))
                 #exi.loc['id', 'candidate_list'] = str(basket)
             exi.loc[exi['id']==num0, ['candidate_list']] = str(basket)
             for col in exi.columns:
