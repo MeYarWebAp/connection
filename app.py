@@ -165,18 +165,18 @@ while not num0:
                  st.stop()
 
 filename = 'MeYar '
-@st.cache(allow_output_mutation=True)
+#@st.cache(allow_output_mutation=True)
 
 
-@st.cache(hash_funcs={"_thread.RLock": 'mysql': st.secrets["mysql"]})
+@st.cache
 
 def getPandasfromMtable (x):
     x=x+1
     engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
     dbConnection= engine.connect()
     return pd.read_sql("select * from Mtable", dbConnection)
-@st.cache(hash_funcs={"_thread.RLock": 'mysql': st.secrets["mysql"]})
-@st.cache(allow_output_mutation=True)
+@st.cache
+#@st.cache(allow_output_mutation=True)
 def getPandasfromFtable (x):
     x=x+1
     engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
