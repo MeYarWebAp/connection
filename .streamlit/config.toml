@@ -6,5 +6,4 @@ textColor="#0d0d0e"
 font="serif"
 [global]
 dataFrameSerialization="legacy"
-[client]
-showErrorDetails = False
+
