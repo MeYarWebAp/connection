@@ -168,14 +168,15 @@ filename = 'MeYar '
 #@st.cache(allow_output_mutation=True)
 
 
-@st.cache
+@st.cache(hash_funcs={'mysql': {'host': 'remote.runflare.com:31442', 'port': 31442, 'database': 'hamedmysopk_db', 'user': 'root', 'password': 'nw8277v9nxrxvi4'}})
 
 def getPandasfromMtable (x):
     x=x+1
     engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
     dbConnection= engine.connect()
     return pd.read_sql("select * from Mtable", dbConnection)
-@st.cache
+@st.cache(hash_funcs={'mysql': {'host': 'remote.runflare.com:31442', 'port': 31442, 'database': 'hamedmysopk_db', 'user': 'root', 'password': 'nw8277v9nxrxvi4'}})
+
 #@st.cache(allow_output_mutation=True)
 def getPandasfromFtable (x):
     x=x+1
