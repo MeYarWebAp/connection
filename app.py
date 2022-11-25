@@ -1778,7 +1778,7 @@ if (num00==sp):
                 
                 df_2s[col] = df_2s[col].astype('string')
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-            df_2s.to_sql('Mall', con=engine)
+            df_2s.to_sql('Mallo', con=engine)
             mydb_2 = mysql.connector.connect(**st.secrets["mysql"])
              
             st.write(mydb_2.cursor())
