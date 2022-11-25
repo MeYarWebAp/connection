@@ -123,13 +123,6 @@ with st.sidebar:
                             dbConnection= engine.connect()
                             return dbConnection
                         #pd.read_sql("select * from Mtable", dbConnection)
-                        @st.cache(allow_output_mutation=True, hash_funcs={"_thread.RLock": lambda _: None})
-
-                        
-                        
-                            #
-                        
-                        
                         
                         exist = pd.read_sql("select * from F", getPandasfromtabl (1))
                         exist_2 = pd.read_sql("select * from Male", getPandasfromtabl (1))
