@@ -1775,6 +1775,7 @@ if (num00==sp):
                 
                 #df_1s[col] = df_1s[col].astype('string')
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+            existing.to_sql(con=engine, name='F', if_exists='replace')#
             #df_1s.to_sql('FF', con=engine)
         #worksheet1.clear()
         #worksheet6 = gs_6.worksheet('Sheet6')
@@ -1788,7 +1789,7 @@ if (num00==sp):
             set_with_dataframe(worksheet=worksheet2, dataframe=existing_2, include_index=False,include_column_header=True, resize=True)
             #data = {"calories": [420, 380, 390],"duration": [50, 40, 45]}
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-            existing_2.to_sql(con=engine, name='MM', if_exists='replace')#
+            existing_2.to_sql(con=engine, name='Mal', if_exists='replace')#
             #df_2s=df_2
             #for col in df_2s.columns:
                 
@@ -1805,7 +1806,8 @@ if (num00==sp):
 
         if n100 =='مرد':
             worksheet1=worksheet_1(url1,'Sheet1')
-            e_1=get_as_dataframe(worksheet1 )
+            #e_1=get_as_dataframe(worksheet1 )
+            e_1=pd.read_sql("select * from F", dbConnection)
             le_1=len(e_1)
 
             basket=[]
@@ -2427,10 +2429,13 @@ if (num00==sp):
                             my_basket.append(candidate)
                     #hisher_basket.append(edited_li)
                     #my_basket.append(candidate)
-            exii = get_as_dataframe(worksheet2 )
+            #exii = get_as_dataframe(worksheet2 )
+            exii=pd.read_sql("select * from Mal", dbConnection)
                 #exi.loc['id', 'candidate_list'] = str(basket)
             exii.loc[exii['id']==num0, ['candidate_list']] = str(basket)
             worksheet2=worksheet_2(url2,'Sheet2')
+            engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+            exii.to_sql(con=engine, name='Mal', if_exists='replace')#
             set_with_dataframe(worksheet=worksheet2, dataframe=exii, include_index=False,include_column_header=True, resize=True)
 
 
@@ -2440,7 +2445,8 @@ if (num00==sp):
 
         if n100 !='مرد':
             worksheet2=worksheet_2(url2,'Sheet2')
-            e_2=get_as_dataframe(worksheet2)
+            #e_2=get_as_dataframe(worksheet2)
+            e_2=pd.read_sql("select * from Mal", dbConnection)
             le_2=len(e_2)
             basket=[]
             for i in range(0, le_2):
@@ -3060,14 +3066,20 @@ if (num00==sp):
                     #hisher_basket.append(edited_li)
                     
                 #hisher_basket.append(li)
-            exi = get_as_dataframe(worksheet1 )
+            
+            exi=pd.read_sql("select * from F", dbConnection)
                 #exi.loc['id', 'candidate_list'] = str(basket)
-                #if basket !=[]:
             exi.loc[exi['id']==num0, ['candidate_list']] = str(basket)
-                #if basket ==[]:
-                    #exi.loc[exi['id']==float(num0), ['candidate_list']] = str([0,0])
-            worksheet1=worksheet_1(url1,'Sheet1') 
+            worksheet1=worksheet_1(url1,'Sheet1')
+            engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+            exi.to_sql(con=engine, name='F', if_exists='replace')#
             set_with_dataframe(worksheet=worksheet1, dataframe=exi, include_index=False,include_column_header=True, resize=True)
+            
+            
+            
+            
+            
+            
         #n10 = st.selectbox(q,('این معیار برای من اهمیتی ندارد',' دکترا',' فوق لیسانس','لیسانس'))'auto_ownership':[] ,'employment'  want_children
         #n110 = st.selectbox(q,(' دکترا',' فوق لیسانس','لیسانس'))
         #n102 = st.selectbox(q,(' نسبتا پر جمعیت است','نسبتا کم جمعیت است '))             
@@ -3095,7 +3107,7 @@ if (num00==sp):
     re = pd.DataFrame(result)
     st.dataframe(re)  
     st.dataframe(exii)
-    #st.dataframe(exii_past)
+    #st.dataframe(exi)
 #st.success("")
     
     st.write("")
