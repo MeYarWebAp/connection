@@ -2945,8 +2945,9 @@ if (num00==sp):
             ex=pd.read_sql("select * from F", getPandasfromtable (1))
             pd.DataFrame(ex)   
             ex.loc[ex['id']==num0, ['candidate_list']] = str(basket)
-            for col in ex.columns:
-                ex[col] = ex.astype('string')
+            ex=ex.applymap(str)
+
+            #ex[col] = ex.astype('string')
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
             
             ex.to_sql(con=engine, name='F', if_exists='replace', index=False)#
