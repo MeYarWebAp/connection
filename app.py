@@ -130,8 +130,8 @@ with st.sidebar:
                         
                         
                         
-                        exist = getPandasfromFtabl 1
-                        exist_2 = getPandasfromMtabl 1
+                        exist = getPandasfromFtabl (1)
+                        exist_2 = getPandasfromMtabl (1)
                         w1=num444444 in exist['id'].values
                         w2=num444444 in exist_2['id'].values
                         if w1:
@@ -236,8 +236,8 @@ if (num00==sp):
     
     
 
-    exii= getPandasfromMtable 1
-    exi=  getPandasfromFtable 1
+    exii= getPandasfromMtable (1)
+    exi=  getPandasfromFtable (1)
     
     w1=num0 in exi['id'].values
     if w1:
@@ -1627,8 +1627,8 @@ if (num00==sp):
     my_basket=[]
     if p:
         
-        existing_2= getPandasfromMtable 1 
-        existing=   getPandasfromFtable 1 
+        existing_2= getPandasfromMtable (1)
+        existing=   getPandasfromFtable (1) 
 
         if W:
 
@@ -1672,7 +1672,7 @@ if (num00==sp):
             
             
             
-            e_1=getPandasfromFtable 1 
+            e_1=getPandasfromFtable (1) 
             le_1=len(e_1)
 
             basket=[]
@@ -2312,7 +2312,7 @@ if (num00==sp):
         if n100 !='مرد':
             
             
-            e_2=getPandasfromMtable 1
+            e_2=getPandasfromMtable (1)
             le_2=len(e_2)
             basket=[]
             for i in range(0, le_2):
