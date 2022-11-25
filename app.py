@@ -327,7 +327,7 @@ if (num00==sp):
 
     dbConnection= engine.connect()
 
-    exii= pd.read_sql("select * from Mal", dbConnection)
+    exii= pd.read_sql("select * from Male", dbConnection)
     exi=pd.read_sql("select * from F", dbConnection)
     
     w1=num0 in exi['id'].values
@@ -1747,7 +1747,9 @@ if (num00==sp):
         worksheet2=worksheet_2(url2,'Sheet2')
         #existing = get_as_dataframe(worksheet1 )
         #existing_2 = get_as_dataframe(worksheet2 )
-        existing_2= pd.read_sql("select * from Mal", dbConnection)
+        engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+        dbConnection= engine.connect()
+        existing_2= pd.read_sql("select * from Male", dbConnection)
         existing=pd.read_sql("select * from F", dbConnection)
 
         if W:
@@ -1770,7 +1772,7 @@ if (num00==sp):
 
             existing = existing.append(df_1)###
             set_with_dataframe(worksheet=worksheet1, dataframe=existing, include_index=False,include_column_header=True, resize=True)
-            df_1s = df_1
+            #df_1s = df_1
             #df_2s=df_2
             #for col in df_1s.columns:
                 
@@ -1790,7 +1792,7 @@ if (num00==sp):
             set_with_dataframe(worksheet=worksheet2, dataframe=existing_2, include_index=False,include_column_header=True, resize=True)
             #data = {"calories": [420, 380, 390],"duration": [50, 40, 45]}
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-            existing_2.to_sql(con=engine, name='Mal', if_exists='replace')#
+            existing_2.to_sql(con=engine, name='Male', if_exists='replace')#
             #df_2s=df_2
             #for col in df_2s.columns:
                 
@@ -1808,6 +1810,8 @@ if (num00==sp):
         if n100 =='مرد':
             worksheet1=worksheet_1(url1,'Sheet1')
             #e_1=get_as_dataframe(worksheet1 )
+            engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+            dbConnection= engine.connect()
             e_1=pd.read_sql("select * from F", dbConnection)
             le_1=len(e_1)
 
@@ -2436,7 +2440,8 @@ if (num00==sp):
             exii.loc[exii['id']==num0, ['candidate_list']] = str(basket)
             worksheet2=worksheet_2(url2,'Sheet2')
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-            exii.to_sql(con=engine, name='Mal', if_exists='replace')#
+            
+            exii.to_sql(con=engine, name='Male', if_exists='replace')#
             set_with_dataframe(worksheet=worksheet2, dataframe=exii, include_index=False,include_column_header=True, resize=True)
 
 
@@ -2447,6 +2452,8 @@ if (num00==sp):
         if n100 !='مرد':
             worksheet2=worksheet_2(url2,'Sheet2')
             #e_2=get_as_dataframe(worksheet2)
+            engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+            dbConnection= engine.connect()
             e_2=pd.read_sql("select * from Mal", dbConnection)
             le_2=len(e_2)
             basket=[]
