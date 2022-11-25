@@ -47,28 +47,7 @@ add_bg_from_url()
 
 
 
-# Create a connection object.
-#credentials = service_account.Credentials.from_service_account_info(
-    #st.secrets["gcp_service_account"],
-    #scopes=[
-        #"https://www.googleapis.com/auth/spreadsheets",
-    #],
-#)
-#conn = connect(credentials=credentials)
 
-    # Perform SQL query on the Google Sheet.
-# Uses st.cache to only rerun when the query changes or after 10 min.
-#gc = gspread.authorize(credentials)
-#gauth = GoogleAuth()
-#drive = GoogleDrive(gauth)
-
-# open a google sheet
-
-
-    #write the following in anaconda first to shape the sheets!!!!!
-    #df = pd.DataFrame({'id': ['float(num0)'],'c_min_age':['num7'],'c_max_age':['num8'],'c_family_wealth':['n1'],'c_family_wealth_det':['num1'],'c_family_number':['n2'],'c_family_number_det':['num2'],'c_living_location':['n9'],'c_living_location_det':['num9'],'c_academic_level':['n10'],'c_academic_level_det':['num10'],'c_hight_min':['num11'],'c_hight_max':['num12'],'c_face_color':['n13'],'c_face_det':['num13'],'c_weight':['n14'], 'c_weight_det':['num14'],'c_nose':['n15'], 'c_nose_det':['num15'],'c_eyes':['n16'],'c_eyes_det':['num16'],'c_somoke':['n27'],'c_smoke_det':['num27'],'c_drink':['n28'],'c_drink_det':['num28'],'c_disability':['n17'],'c_disability_det':['num17'],'c_divorsed_member':['n3'],'c_divorsed_member_det':['num3'],'c_delict_member':['n4'],'c_delict_member_det':['num4'], 'c_drog_member':['n5'], 'c_drog_member_det':['num5'],'c_social_att':['n18'],'c_social_att_det':['num18'], 'c_mental_att':['n25'],'c_mental_att_det':['num25'],'c_beleifs':['n19'],'c_beleifs_det':['num19'],'c_house_ownership':['n22'],'c_house_ownership_det':['num22'],'c_auto_ownership':['n23'],'c_auto_ownership_det':['num23'],'c_employment':['n24'],'c_employment_det':['num24'],'c_marriage_exp':['n20'], 'c_marriage_exp_det':['num20'],'c_want_children':['n21'],'c_want_children_det':['num21'],'c_family_job':['n6'],'c_family_job_det':['num6'],  'family_job':['n106'],'age':['num107'],'family_wealth':['n101'] ,'family_number':['n102'],'living_location':['n109'],'academic_level':['n110'] ,'hight':['num111'], 'face_color':['num112'],'weight':['num113'] ,'nose':['num114'] ,'eyes':['num115'] ,'smoke':['num127'] ,'drink':['num128'] ,'disability':['num116'] ,'divorsed_member':['n103'] ,'delict_member':['n104'] ,'drog_member':['n105'] ,'social_att':['num118'] ,'mental_att':['num119'] ,'beleifs':['num120'] ,'house_ownership':['n121'] ,'auto_ownership':['n122'],'employment':['n123'] ,'marriage_exp':['n20'] ,'want_children':['n21']})
-    #worksheet1.clear()
-    #set_with_dataframe(worksheet=worksheet1, dataframe=df, include_index=False,include_column_header=True, resize=True)
 
 
 
@@ -132,11 +111,10 @@ with st.sidebar:
                     
                     if (num000000==spd):
 
-                        #url1= 'https://docs.google.com/spreadsheets/d/1zX0B7Iztun5l86Tj9zvaoPGz12InsUSCgI-na5aMN_s/edit#gid=2048497992'
-                        #url2= 'https://docs.google.com/spreadsheets/d/1zX0B7Iztun5l86Tj9zvaoPGz12InsUSCgI-na5aMN_s/edit#gid=1914814158'
+                        
                         @st.cache(allow_output_mutation=True)
                         @st.cache(suppress_st_warning=True)
-                        #@st.cache(hash_funcs={_cffi_backend.__CDataGCP: my_hash_func})
+                        
                         def getPandasfromMtabl (Mtable):
                             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
                             dbConnection= engine.connect()
@@ -147,25 +125,9 @@ with st.sidebar:
                             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
                             dbConnection= engine.connect()
                             return pd.read_sql("select * from Ftable", dbConnection)
-                        #def workshee_1(url_1,sheet_1):
-                            #try:
-                                #gs = gc.open_by_url(url_1)# select a work sheet from its name
-                                #return gs.worksheet(sheet_1)
-                            #except gspread.exceptions.APIError as error:
-                                #st.write("در حال حاضر، ارتباط با داده های معیار به زمان بیشتری  نیاز دارد. لطفا کمی بعدتر، دوباره تلاش کنید")
-                                #st.stop()
-                        @st.cache(allow_output_mutation=True)
-                        @st.cache(suppress_st_warning=True)
-                        #@st.cache(hash_funcs={_cffi_backend.__CDataGCP: my_hash_func})
-                        #def workshee_2(url_2,sheet_2):
-                            #try:
-                                #gs = gc.open_by_url(url_2)# select a work sheet from its name
-                                #return gs.worksheet(sheet_2) 
-                            #except gspread.exceptions.APIError as error:
-                                #st.write("در حال حاضر، ارتباط با داده های معیار به زمان بیشتری  نیاز دارد. لطفا کمی بعدتر، دوباره تلاش کنید")
-                                #st.stop()
-                        #wor1=workshee_1(url1,'Sheet1')#nnnn
-                        #wor2=workshee_2(url2,'Sheet2')
+                        
+                        
+                        
                         exist = getPandasfromFtabl F
                         exist_2 = getPandasfromMtabl Male
                         w1=num444444 in exist['id'].values
@@ -176,7 +138,7 @@ with st.sidebar:
                             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
             
                             exist.to_sql(con=engine, name='F', if_exists='replace')#
-                            #set_with_dataframe(worksheet=wor1, dataframe=exist, include_index=False,include_column_header=True, resize=True)
+                            
                             st.write('درخواست با موفقیت انجام شد')
                         if w2:
                             ix=exist_2.loc[exist_2['id']==num444444].index.tolist()
@@ -184,26 +146,9 @@ with st.sidebar:
                             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
             
                             exist_2.to_sql(con=engine, name='Male', if_exists='replace')#
-                            #set_with_dataframe(worksheet=wor2, dataframe=exist_2, include_index=False,include_column_header=True, resize=True)
+                            
                             st.write('درخواست با موفقیت انجام شد')
-#credentials = Credentials.from_service_account_info(st.secrets["gcp"], scopes=scopes)
 
-
-
-
-
-
-
-
-
-
-
-
-
-#image = Image.open(r'C:\Users\Hamed\Desktop\list-2389219_1280-1024x1024.png')
-#uploaded_file = st.file_uploader("Choose a file")
-#image = Image.open("")
-#st.image(image)
 st.markdown("<h5 style='text-align: center;'>بسمه تعالی</h5>", unsafe_allow_html=True )
 st.markdown("<h5 style='text-align: center;'> معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از خانواده و ارزش هاست</h5>", unsafe_allow_html=True )
 
@@ -215,29 +160,7 @@ while not num0:
         
         if 1==1:
                  st.stop()
-retries=15#def retry_with_backoff
-wait_time=1
-filename = 'MeYar '
 
-
-
-#@st.cache(allow_output_mutation=True)
-
-#def worksheet_1(url_1,sheet_1):
-  #x = 0
-  #while True:
-    #try:
-      #gs = gc.open_by_url(url_1)
-      #return gs.worksheet(sheet_1)
-    #except gspread.exceptions.APIError as error:
-      #if x == retries:
-        #st.write("در حال حاضر، ارتباط با داده های معیار به زمان بیشتری  نیاز دارد. لطفا کمی بعدتر، دوباره تلاش کنید")
-        #st.stop()
-      
-      #sleep = (wait_time * 2 ** x + random.uniform(0, 1))
-      #time.sleep(sleep)
-      
-      #x += 1
 filename = 'MeYar '
 @st.cache(allow_output_mutation=True)
 def getPandasfromMtable (Mtable):
@@ -249,7 +172,7 @@ def getPandasfromFtable (Ftable):
     engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
     dbConnection= engine.connect()
     return pd.read_sql("select * from Ftable", dbConnection)
-@st.cache(allow_output_mutation=True)
+
 
   
 num0=num0.lower()
@@ -330,16 +253,7 @@ if (num00==sp):
 
     if W:
         st.markdown('<div style="text-align: center;color:Gray">معیارهای شما اکنون بر اساس داده هایی که تا کنون وارد کرده اید، تنظیم شده اند</div>', unsafe_allow_html=True)
-        #st.success(<div style="text-align: center;">معیارهای شما اکنون بر اساس داده هایی که تا کنون وارد کرده اید، تنظیم شده اند</div>', unsafe_allow_html=True)
-
-    
-    #agree = st.checkbox('I agree')
-
-    #if agree:
-        #st.write('Great!')
-    #q='او خیلی به فلسفه و چرایی سوالات زندگی می اندیشد'
-                            #a=['بله']
-            #n21213454 = st.selectbox(q,a)
+        
     
     
     with st.expander("رشته تحصیلی او"):
