@@ -121,7 +121,8 @@ with st.sidebar:
                             x=x+1
                             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
                             dbConnection= engine.connect()
-                            return pd.read_sql("select * from Mtable", dbConnection)
+                            return dbConnection
+                        #pd.read_sql("select * from Mtable", dbConnection)
                         @st.cache(allow_output_mutation=True, hash_funcs={"_thread.RLock": lambda _: None})
 
                         
@@ -129,12 +130,13 @@ with st.sidebar:
                             x=x+1
                             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
                             dbConnection= engine.connect()
-                            return pd.read_sql("select * from Ftable", dbConnection)
+                            return dbConnection
+                            #
                         
                         
                         
-                        exist = getPandasfromFtabl (1)
-                        exist_2 = getPandasfromMtabl (1)
+                        exist = pd.read_sql("select * from Ftable", getPandasfromFtabl (1))
+                        exist_2 = pd.read_sql("select * from Ftable", getPandasfromMtabl (1))
                         w1=num444444 in exist['id'].values
                         w2=num444444 in exist_2['id'].values
                         if w1:
@@ -177,7 +179,7 @@ def getPandasfromMtable (x):
     x=x+1
     engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
     dbConnection= engine.connect()
-    return pd.read_sql("select * from Mtable", dbConnection)
+    return dbConnection  #  
 @st.cache(hash_funcs={sqlalchemy.orm.PATH.TO.CLASS: id}, allow_output_mutation=True)
 
 
@@ -186,7 +188,7 @@ def getPandasfromFtable (x):
     x=x+1
     engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
     dbConnection= engine.connect()
-    return pd.read_sql("select * from Ftable", dbConnection)
+    return dbConnection
 
 
   
@@ -247,8 +249,8 @@ if (num00==sp):
     
     
 
-    exii= getPandasfromMtable (1)
-    exi=  getPandasfromFtable (1)
+    exii=  pd.read_sql("select * from Mtable", getPandasfromMtable (1))
+    exi=   pd.read_sql("select * from Mtable", getPandasfromFtable (1))
     
     w1=num0 in exi['id'].values
     if w1:
