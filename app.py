@@ -1788,7 +1788,7 @@ if (num00==sp):
             set_with_dataframe(worksheet=worksheet2, dataframe=existing_2, include_index=False,include_column_header=True, resize=True)
             #data = {"calories": [420, 380, 390],"duration": [50, 40, 45]}
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-            existing_2.to_sql(con=engine, name='M', if_exists='replace')#
+            existing_2.to_sql(con=engine, name='MM', if_exists='replace')#
             #df_2s=df_2
             #for col in df_2s.columns:
                 
