@@ -173,14 +173,14 @@ def getConnection (x):
     x=x+1
     engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
     return engine
-st.cache(hash_funcs={sqlalchemy.engine.base.Engine: id})
+@st.cache(hash_funcs={"_thread.RLock": lambda _: None})
 
 def getPandasfromMtable (x):
     x=x+1
     
     dbConnection= getConnection (1).connect()
     return pd.read_sql("select * from Mtable", dbConnection)
-st.cache(hash_funcs={sqlalchemy.engine.base.Engine: id})
+@st.cache(hash_funcs={"_thread.RLock": lambda _: None})
 
 def getPandasfromFtable (x):
     x=x+1
