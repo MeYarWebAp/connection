@@ -134,8 +134,8 @@ with st.sidebar:
                             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
                             for col in exist.columns:
                                 exist[col] = exist[col].astype('string')
-                            exist.reset_index(drop=True)
-                            exist.to_sql(con=engine, name='F', if_exists='replace')#
+                            #exist.reset_index(drop=True)
+                            exist.to_sql(con=engine, name='F', if_exists='replace', index=False)#
                             
                             st.write('درخواست با موفقیت انجام شد')
                         if w2:
@@ -144,8 +144,8 @@ with st.sidebar:
                             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
                             for col in exist_2.columns:
                                 exist_2[col] = exist_2[col].astype('string')
-                            exist_2.reset_index(drop=True)
-                            exist_2.to_sql(con=engine, name='Male', if_exists='replace')#
+                            
+                            exist_2.to_sql(con=engine, name='Male', if_exists='replace', index=False)#
                             
                             st.write('درخواست با موفقیت انجام شد')
 
@@ -1640,14 +1640,14 @@ if (num00==sp):
                     if n100 != ex.iloc[0]['gender']:
                         
                         engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-                        existing.to_sql(con=engine, name='Male', if_exists='replace')
+                        existing.to_sql(con=engine, name='Male', if_exists='replace', index=False)
                 if w2:
                     existing_2=existing_2.drop(ix)
                     #st.write(22222222222222222222)
                     if n100 != ex.iloc[0]['gender']:
                         
                         engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-                        existing_2.to_sql(con=engine, name='F', if_exists='replace')
+                        existing_2.to_sql(con=engine, name='F', if_exists='replace', index=False)
 
         if n100 !='مرد':
             
@@ -1657,8 +1657,8 @@ if (num00==sp):
             for col in existing.columns:
                 existing[col] = existing[col].astype('string')
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-            existing.index.name = num0
-            existing.to_sql(con=engine, name='F', if_exists='replace')#
+            
+            existing.to_sql(con=engine, name='F', if_exists='replace', index=False)#
             
         if n100 =='مرد':
             
@@ -1669,8 +1669,8 @@ if (num00==sp):
                 existing_2[col] = existing_2[col].astype('string')
             #data = {"calories": [420, 380, 390],"duration": [50, 40, 45]}
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-            existing_2.index.name = num0
-            existing_2.to_sql(con=engine, name='Male', if_exists='replace')#
+            
+            existing_2.to_sql(con=engine, name='Male', if_exists='replace', index=False)#
             
 
 
@@ -2308,8 +2308,8 @@ if (num00==sp):
             for col in exii.columns:
                 exii[col] = exii[col].astype('string')
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-            exii.reset_index(drop=True)
-            exii.to_sql(con=engine, name='Male', if_exists='replace')
+            
+            exii.to_sql(con=engine, name='Male', if_exists='replace', index=False)
             
 
 
@@ -2947,8 +2947,8 @@ if (num00==sp):
             for col in exi.columns:
                 exi[col] = exi.astype('string')
             engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-            exi.reset_index(drop=True)
-            exi.to_sql(con=engine, name='F', if_exists='replace')#
+            
+            exi.to_sql(con=engine, name='F', if_exists='replace', index=False)#
             
             
             
