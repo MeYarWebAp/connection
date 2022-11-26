@@ -17,14 +17,7 @@ import streamlit as st
 import pandas as pd
 import json
 import smtplib as s
-import gspread
-from gspread_dataframe import set_with_dataframe
-from google.oauth2.service_account import Credentials
-from pydrive.auth import GoogleAuth
-from pydrive.drive import GoogleDrive
-from google.oauth2 import service_account
-from gsheetsdb import connect
-from gspread_dataframe import get_as_dataframe, set_with_dataframe
+
 
 common_meyar_percent=0.75
 
