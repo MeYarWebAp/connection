@@ -1641,14 +1641,14 @@ if (num00==sp):
                     if n100 != ex.iloc[0]['gender']:
                         
                         engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-                        existing.to_sql(con=engine, name='M', if_exists='replace', index=False)
+                        existing.to_sql(con=engine, name='F', if_exists='replace', index=False)
                 if w2:
                     existing_2=existing_2.drop(ix)
                     #st.write(22222222222222222222)
                     if n100 != ex.iloc[0]['gender']:
                         
                         engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-                        existing_2.to_sql(con=engine, name='F', if_exists='replace', index=False)
+                        existing_2.to_sql(con=engine, name='M', if_exists='replace', index=False)
 
         if n100 !='مرد':
             
