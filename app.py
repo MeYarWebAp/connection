@@ -175,16 +175,19 @@ filename = 'MeYar '
 
 def getPandasfromtable (x):
     while True:
-        engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-        dbConnection= engine.connect()
-        return dbConnection
-    except pymysql.Error as e:
-        if x == retries:
-            st.write("در حال حاضر، ارتباط با داده های معیار به زمان بیشتری  نیاز دارد. لطفا کمی بعدتر، دوباره تلاش کنید")
-            st.stop()
-        sleep = (wait_time * 2 ** x + random.uniform(0, 1))
-        time.sleep(sleep)
-        x += 1
+        try:
+            engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+            dbConnection= engine.connect()
+            return dbConnection
+        
+        except pymysql.Error as e:
+        
+            if x == retries:
+                st.write("در حال حاضر، ارتباط با داده های معیار به زمان بیشتری  نیاز دارد. لطفا کمی بعدتر، دوباره تلاش کنید")
+                st.stop()
+            sleep = (wait_time * 2 ** x + random.uniform(0, 1))
+            time.sleep(sleep)
+            x += 1
     
 
 
