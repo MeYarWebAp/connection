@@ -17,7 +17,8 @@ import streamlit as st
 import pandas as pd
 import json
 import smtplib as s
-
+retries=15
+wait_time=1
 
 common_meyar_percent=0.75
 
@@ -111,14 +112,24 @@ with st.sidebar:
                         
                         
                         def getPandasfromtabl (x):
-                            x=x+1
-                            engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-                            dbConnection= engine.connect()
-                            return dbConnection
-                        #pd.read_sql("select * from Mtable", dbConnection)
+                            
+                            
+                            while True:
+                                try:
+                                    engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+                                    dbConnection= engine.connect()
+                                    return dbConnection
+                                except pymysql.Error as e:
+                                    if x == retries:
+                                        st.write("در حال حاضر، ارتباط با داده های معیار به زمان بیشتری  نیاز دارد. لطفا کمی بعدتر، دوباره تلاش کنید")
+                                        st.stop()
+                                    sleep = (wait_time * 2 ** x + random.uniform(0, 1))
+                                    time.sleep(sleep)
+                                    x += 1
                         
-                        exist = pd.read_sql("select * from F", getPandasfromtabl (1))
-                        exist_2 = pd.read_sql("select * from M", getPandasfromtabl (1))
+                        
+                        exist = pd.read_sql("select * from F", getPandasfromtabl (0))
+                        exist_2 = pd.read_sql("select * from M", getPandasfromtabl (0))
                         w1=num444444 in exist['id'].values
                         w2=num444444 in exist_2['id'].values
                         if w1:
@@ -163,12 +174,18 @@ filename = 'MeYar '
 #@st.cache(allow_output_mutation=True, hash_funcs={"_thread.RLock": lambda _: None, "builtins.weakref":lambda _: None})
 
 def getPandasfromtable (x):
-    x=x+1
-    engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-    dbConnection= engine.connect()
-    return dbConnection  #  
-
-
+    while True:
+        engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+        dbConnection= engine.connect()
+        return dbConnection
+    except pymysql.Error as e:
+        if x == retries:
+            st.write("در حال حاضر، ارتباط با داده های معیار به زمان بیشتری  نیاز دارد. لطفا کمی بعدتر، دوباره تلاش کنید")
+            st.stop()
+        sleep = (wait_time * 2 ** x + random.uniform(0, 1))
+        time.sleep(sleep)
+        x += 1
+    
 
 
 
@@ -232,8 +249,8 @@ if (num00==sp):
     
     
 
-    exii=  pd.read_sql("select * from M", getPandasfromtable (1))
-    exi=   pd.read_sql("select * from F", getPandasfromtable (1))
+    exii=  pd.read_sql("select * from M", getPandasfromtable (0))
+    exi=   pd.read_sql("select * from F", getPandasfromtable (0))
     
     w1=num0 in exi['id'].values
     if w1:
@@ -1623,8 +1640,8 @@ if (num00==sp):
     my_basket=[]
     if p:
         
-        existing_2= pd.read_sql("select * from M", getPandasfromtable (1))
-        existing=   pd.read_sql("select * from F", getPandasfromtable (1))
+        existing_2= pd.read_sql("select * from M", getPandasfromtable (0))
+        existing=   pd.read_sql("select * from F", getPandasfromtable (0))
 
         if W:
 
@@ -1672,7 +1689,7 @@ if (num00==sp):
             
             
             
-            e_1=pd.read_sql("select * from F", getPandasfromtable (1))
+            e_1=pd.read_sql("select * from F", getPandasfromtable (0))
             le_1=len(e_1)
 
             basket=[]
@@ -2297,7 +2314,7 @@ if (num00==sp):
                     #hisher_basket.append(edited_li)
                     #my_basket.append(candidate)
             #exii = get_as_dataframe(worksheet2 )
-            exii=pd.read_sql("select * from M", getPandasfromtable (1))
+            exii=pd.read_sql("select * from M", getPandasfromtable (0))
                 #exi.loc['id', 'candidate_list'] = str(basket)
             exii.loc[exii['id']==num0, ['candidate_list']] = str(basket)
             exii=exii.applymap(str)
@@ -2315,7 +2332,7 @@ if (num00==sp):
         if n100 !='مرد':
             
             
-            e_2=pd.read_sql("select * from M", getPandasfromtable (1))
+            e_2=pd.read_sql("select * from M", getPandasfromtable (0))
             le_2=len(e_2)
             basket=[]
             for i in range(0, le_2):
@@ -2936,7 +2953,7 @@ if (num00==sp):
                     
                 #hisher_basket.append(li)
             
-            ex=pd.read_sql("select * from F", getPandasfromtable (1))
+            ex=pd.read_sql("select * from F", getPandasfromtable (0))
             pd.DataFrame(ex)   
             ex.loc[ex['id']==num0, ['candidate_list']] = str(basket)
             ex=ex.applymap(str)
@@ -2982,5 +2999,3 @@ if (num00==sp):
     st.write("")
     st.write("")
     
-
-
