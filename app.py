@@ -2964,7 +2964,7 @@ if (num00==sp):
     st.markdown('<div style="text-align: center;color:Gray">دقت کنید که معرفی گزینه ها در معیار منوط به جستجو شدن طرفین مراجعه کننده توسط هم و مراجعه لزوما بیشتر از یکبار است</div>', unsafe_allow_html=True)
     result = {'شما':num0 , 'دیگران در نگاه شما': my_basket,'شما در نگاه دیگران': hisher_basket}
     re = pd.DataFrame(result)
-    st.dataframe(re)  
+    st.table(re)  
     #st.dataframe(exii)
     #st.dataframe(exi)
 #st.success("")
