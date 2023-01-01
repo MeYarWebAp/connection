@@ -60,7 +60,7 @@ with st.sidebar:
     from streamlit_extras.app_logo import add_logo
     from PIL import Image
     image= "https://media-exp1.licdn.com/dms/image/C4E03AQHIC0oMN1CIfQ/profile-displayphoto-shrink_800_800/0/1660400267859?e=2147483647&v=beta&t=no_gTLvb-xtEg9S56HjYV6BTO_I4bV5P3Ha0f5bhbXI"
-    st.image(image, caption='معیاریکی ازاستارت آپ های مورد حمایت دفتر معاونت توسعهٔ روابط علمی و سرمایهٔ انسانی ریاست جمهوری ایران است', width = 250)
+    st.image(image, caption='معیاریکی ازاستارت آپ های مورد حمایت دفتر معاونت توسعهٔ روابط علمی و سرمایهٔ انسانی ریاست جمهوری ایران است', width = 300)
     st.markdown(message)
     page = st.selectbox('',['تماس با ما','درباره معیار','پایان جستجوی من در معیار'])
     if page=='درباره معیار':
