@@ -6,3 +6,4 @@ mysql-connector-python==8.0.17
 sqlalchemy==1.4.22
 pymysql==1.0.2
 cryptography
+streamlit-extras
