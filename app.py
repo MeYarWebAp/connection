@@ -172,10 +172,10 @@ st.markdown(mystyle, unsafe_allow_html=True)
 # Generate Three equal columns
 c1, c2 = st.columns((1, 1))
 
-with c2:
-    st.info("""معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از خانواده و ارزش هاست""")
+#with c2:
+    #st.info("""معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از خانواده و ارزش هاست""")
 #st.markdown("<h5 style='text-align: center;'> معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از خانواده و ارزش هاست</h5>", unsafe_allow_html=True )
-#st.info("معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از خانواده و ارزش هاست")
+st.info("معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از خانواده و ارزش هاست")
 st.image(logolink,width=400)
 
 
