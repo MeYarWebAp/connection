@@ -170,7 +170,7 @@ mystyle = '''
 #st.markdown(mystyle, unsafe_allow_html=True)
 
 # Generate Three equal columns
-c1, c2 = st.columns((1,1, 1))
+c1, c2, c3 = st.columns((1,1, 1))
 
 with c2:
     st.info("""بسمه تعالی""")
