@@ -38,7 +38,7 @@ def add_bg_from_url():
 
 #add_bg_from_url() 
 #st.markdown("![Alt Text](https://1drv.ms/u/s!AquyG0uXFObDfmRkSrVzdZ06rqQ?e=OD8ogL)") [image]
-st.image('https://1drv.ms/u/s!AquyG0uXFObDfmRkSrVzdZ06rqQ?e=OD8ogL.png')
+
 
 
 
@@ -159,7 +159,7 @@ with st.sidebar:
 
 st.markdown("<h5 style='text-align: center;'>بسمه تعالی</h5>", unsafe_allow_html=True )
 st.markdown("<h5 style='text-align: center;'> معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از خانواده و ارزش هاست</h5>", unsafe_allow_html=True )
-
+st.image('https://1drv.ms/u/s!AquyG0uXFObDfmRkSrVzdZ06rqQ?e=OD8ogL.png')
 
 
 
