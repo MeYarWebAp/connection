@@ -159,7 +159,7 @@ with st.sidebar:
 
 st.markdown("<h5 style='text-align: center;'>بسمه تعالی</h5>", unsafe_allow_html=True )
 st.markdown("<h5 style='text-align: center;'> معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از خانواده و ارزش هاست</h5>", unsafe_allow_html=True )
-st.image('https://onedrive.live.com/?authkey=%21AGRkSrVzdZ06rqQ&cid=C3E614974B1BB2AB&id=C3E614974B1BB2AB%21126&parId=root&o=OneUp')
+st.image('https://s3-us-west-2.amazonaws.com/uw-s3-cdn/wp-content/uploads/sites/6/2017/11/04133712/waterfall.jpg')
 
 
 
