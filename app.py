@@ -59,7 +59,7 @@ __موضوعات__
 with st.sidebar:
     from streamlit_extras.app_logo import add_logo
     from PIL import Image
-    image= "https://media-exp1.licdn.com/dms/image/C4E03AQHIC0oMN1CIfQ/profile-displayphoto-shrink_800_800/0/1660400267859?e=2147483647&v=beta&t=no_gTLvb-xtEg9S56HjYV6BTO_I4bV5P3Ha0f5bhbXI"
+    image= "https://db3pap002files.storage.live.com/y4m5gzt8kpr5Fj48m5Jz-lQFIhBxNEHbS1yAOyQdiq3tQRn4Nq9E-X_FSq-luohTEddJ8voVQFRfN6t7cgOtgW4L2GpSGayVNQZL7ioF5afBvfeqVtk_xwMcl8PDV0q4v1-2kXFKFZxEGTPh1j9nnyW1_eNxaG0Hoj8-JOESh_yPsv-_dxD2y20OMGxmeDLG8OX?encodeFailures=1&width=716&height=571"
     st.image(image, caption='معیاریکی ازاستارت آپ های مورد حمایت دفتر معاونت توسعهٔ روابط علمی و سرمایهٔ انسانی ریاست جمهوری ایران است', width = 300)
     st.markdown(message)
     page = st.selectbox('',['تماس با ما','درباره معیار','پایان جستجوی من در معیار'])
@@ -159,7 +159,7 @@ with st.sidebar:
 
 st.markdown("<h5 style='text-align: center;'>بسمه تعالی</h5>", unsafe_allow_html=True )
 st.markdown("<h5 style='text-align: center;'> معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از خانواده و ارزش هاست</h5>", unsafe_allow_html=True )
-st.image('https://db3pap002files.storage.live.com/y4m5gzt8kpr5Fj48m5Jz-lQFIhBxNEHbS1yAOyQdiq3tQRn4Nq9E-X_FSq-luohTEddJ8voVQFRfN6t7cgOtgW4L2GpSGayVNQZL7ioF5afBvfeqVtk_xwMcl8PDV0q4v1-2kXFKFZxEGTPh1j9nnyW1_eNxaG0Hoj8-JOESh_yPsv-_dxD2y20OMGxmeDLG8OX?encodeFailures=1&width=716&height=571',width=600)
+st.image('https://db3pap002files.storage.live.com/y4m5gzt8kpr5Fj48m5Jz-lQFIhBxNEHbS1yAOyQdiq3tQRn4Nq9E-X_FSq-luohTEddJ8voVQFRfN6t7cgOtgW4L2GpSGayVNQZL7ioF5afBvfeqVtk_xwMcl8PDV0q4v1-2kXFKFZxEGTPh1j9nnyW1_eNxaG0Hoj8-JOESh_yPsv-_dxD2y20OMGxmeDLG8OX?encodeFailures=1&width=716&height=571',width=400)
 
 
 
