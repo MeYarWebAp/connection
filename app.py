@@ -4,6 +4,7 @@ Created on Sat Jun 18 15:56:02 2022
 @author: Hamed Khalili
 """
 #####
+logolink = "https://db3pap002files.storage.live.com/y4mQaxQEAjYZeuQ54_Yh5XtEvoHvibUJ2FPhxgr86cQEtv2BcnK9rz5e7JfWnNRw0gTYkXTm26aqoDVEAUAiR-W1_jPlUlsTh6rJWL2GbB8LtDAmzKwXaAcc-gPbU-NFlnmpAM0GoVwg4vk0I93HtH0ae6AW11Ad2MpnzyoU5egJywW2xDBfdA89vtQNpmx2iHT?encodeFailures=1&width=712&height=561"
 import random
 import pandas as pd
 import sqlalchemy
@@ -59,7 +60,7 @@ __موضوعات__
 with st.sidebar:
     from streamlit_extras.app_logo import add_logo
     from PIL import Image
-    image= "https://db3pap002files.storage.live.com/y4m5gzt8kpr5Fj48m5Jz-lQFIhBxNEHbS1yAOyQdiq3tQRn4Nq9E-X_FSq-luohTEddJ8voVQFRfN6t7cgOtgW4L2GpSGayVNQZL7ioF5afBvfeqVtk_xwMcl8PDV0q4v1-2kXFKFZxEGTPh1j9nnyW1_eNxaG0Hoj8-JOESh_yPsv-_dxD2y20OMGxmeDLG8OX?encodeFailures=1&width=716&height=571"
+    image= logolink
     st.image(image, caption='معیاریکی ازاستارت آپ های مورد حمایت دفتر معاونت توسعهٔ روابط علمی و سرمایهٔ انسانی ریاست جمهوری ایران است', width = 300)
     st.markdown(message)
     page = st.selectbox('',['تماس با ما','درباره معیار','پایان جستجوی من در معیار'])
@@ -159,7 +160,7 @@ with st.sidebar:
 
 st.markdown("<h5 style='text-align: center;'>بسمه تعالی</h5>", unsafe_allow_html=True )
 st.markdown("<h5 style='text-align: center;'> معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از خانواده و ارزش هاست</h5>", unsafe_allow_html=True )
-st.image('https://db3pap002files.storage.live.com/y4m5gzt8kpr5Fj48m5Jz-lQFIhBxNEHbS1yAOyQdiq3tQRn4Nq9E-X_FSq-luohTEddJ8voVQFRfN6t7cgOtgW4L2GpSGayVNQZL7ioF5afBvfeqVtk_xwMcl8PDV0q4v1-2kXFKFZxEGTPh1j9nnyW1_eNxaG0Hoj8-JOESh_yPsv-_dxD2y20OMGxmeDLG8OX?encodeFailures=1&width=716&height=571',width=400)
+st.image(logolink,width=400)
 
 
 
