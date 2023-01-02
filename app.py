@@ -37,8 +37,8 @@ def add_bg_from_url():
      )
 
 #add_bg_from_url() 
-st.markdown("![Alt Text](https://1drv.ms/u/s!AquyG0uXFObDfmRkSrVzdZ06rqQ?e=OD8ogL)") [image]
-
+#st.markdown("![Alt Text](https://1drv.ms/u/s!AquyG0uXFObDfmRkSrVzdZ06rqQ?e=OD8ogL)") [image]
+st.image('https://1drv.ms/u/s!AquyG0uXFObDfmRkSrVzdZ06rqQ?e=OD8ogL.png')
 
 
 
