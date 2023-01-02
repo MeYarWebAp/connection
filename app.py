@@ -159,7 +159,8 @@ with st.sidebar:
                             st.write('درخواست با موفقیت انجام شد')
 
 st.markdown("<h5 style='text-align: center;'>بسمه تعالی</h5>", unsafe_allow_html=True )
-st.markdown("<h5 style='text-align: center;'> معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از خانواده و ارزش هاست</h5>", unsafe_allow_html=True )
+#st.markdown("<h5 style='text-align: center;'> معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از خانواده و ارزش هاست</h5>", unsafe_allow_html=True )
+st.info("معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از خانواده و ارزش هاست")
 st.image(logolink,width=400)
 
 
