@@ -27,7 +27,7 @@ def add_bg_from_url():
          f"""
          <style>
          .stApp {{
-             background-image: url("https://www.brandcrowd.com/maker/social/4m5p1cfbrs");
+             background-image: url("https://1drv.ms/u/s!AquyG0uXFObDfmRkSrVzdZ06rqQ?e=OD8ogL");
              background-attachment: fixed;
              background-size: cover
          }}
