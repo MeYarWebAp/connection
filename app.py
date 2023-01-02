@@ -167,7 +167,7 @@ mystyle = '''
     </style>
     '''
 
-st.markdown(mystyle, unsafe_allow_html=True)
+#st.markdown(mystyle, unsafe_allow_html=True)
 
 # Generate Three equal columns
 c1, c2 = st.columns((1, 1))
