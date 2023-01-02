@@ -27,7 +27,7 @@ def add_bg_from_url():
          f"""
          <style>
          .stApp {{
-             background-image: url("https://cdn.pixabay.com/photo/2019/04/24/11/27/flowers-4151900_960_720.jpg");
+             background-image: url("https://www.brandcrowd.com/maker/social/4m5p1cfbrs");
              background-attachment: fixed;
              background-size: cover
          }}
@@ -36,7 +36,7 @@ def add_bg_from_url():
          unsafe_allow_html=True
      )
 
-#add_bg_from_url() 
+add_bg_from_url() 
 
 
 
