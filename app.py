@@ -327,7 +327,7 @@ if (num00==sp):
 
             n10 = st.multiselect(q,a, eval(g))
         else:
-            n10 = st.multiselect(q,a)
+            n10 = st.multiselect(q,a,a)
 
             #n1 = st.selectbox(q,(این معیار برای من اهمیت ویژه ای ندارد','بایستی غنی و متمول باشند','متوسط به بالا باشند','اگر فقیرباشند نیزمشکلی ندارم'))
         if n10!='این معیار برای من اهمیت ویژه ای ندارد':
@@ -360,7 +360,7 @@ if (num00==sp):
             #d=a.index(g)
             n6 = st.multiselect(q,a, eval(g))
         else:
-            n6 = st.multiselect(q,a)
+            n6 = st.multiselect(q,a,a)
         if 'این معیار برای من اهمیت ویژه ای ندارد' not in n6:
             q='آیا پاسخ شما، معیاری قطعی برای شماست؟'
             a=['خیر','بله']
@@ -562,7 +562,7 @@ if (num00==sp):
             g=ex.iloc[0]['c_face_color']
             n13= st.multiselect(q,a, eval(g))
         else:
-            n13 = st.multiselect(q,a)
+            n13 = st.multiselect(q,a,a)
         if 'این معیار برای من اهمیت ویژه ای ندارد' not in n13:
             q='آیا پاسخ شما، معیاری قطعی برای شماست؟'
             a=['خیر','بله']
@@ -579,7 +579,7 @@ if (num00==sp):
             g=ex.iloc[0]['c_weight']
             n14= st.multiselect(q,a, eval(g))
         else:
-            n14 = st.multiselect(q,a)
+            n14 = st.multiselect(q,a,a)
         if 'این معیار برای من اهمیت ویژه ای ندارد' not in n14:
             q='آیا پاسخ شما، معیاری قطعی برای شماست؟'
             a=['خیر','بله']
@@ -596,7 +596,7 @@ if (num00==sp):
             g=ex.iloc[0]['c_nose']
             n15= st.multiselect(q,a, eval(g))
         else:
-            n15 = st.multiselect(q,a)
+            n15 = st.multiselect(q,a,a)
         if 'این معیار برای من اهمیت ویژه ای ندارد' not in n15:
             q='آیا پاسخ شما، معیاری قطعی برای شماست؟'
             a=['خیر','بله']
@@ -615,7 +615,7 @@ if (num00==sp):
             g=ex.iloc[0]['c_hair']
             n150= st.multiselect(q,a, eval(g))
         else:
-            n150 = st.multiselect(q,a)
+            n150 = st.multiselect(q,a,a)
         if 'این معیار برای من اهمیت ویژه ای ندارد' not in n150:
             q='آیا پاسخ شما، معیاری قطعی برای شماست؟'
             a=['خیر','بله']
@@ -797,7 +797,7 @@ if (num00==sp):
             g=ex.iloc[0]['c_nava']
             n6000= st.multiselect(q,a, eval(g))
         else:
-            n6000 = st.multiselect(q,a)
+            n6000 = st.multiselect(q,a,a)
         if 'این معیار برای من اهمیت ویژه ای ندارد' not in n6000:
             q='آیا پاسخ شما، معیاری قطعی برای شماست؟'
             a=['خیر','بله']
@@ -1024,7 +1024,7 @@ if (num00==sp):
             g=ex.iloc[0]['c_social_att']
             n18= st.multiselect(q,a, eval(g))
         else:
-            n18 = st.multiselect(q,a)
+            n18 = st.multiselect(q,a,a)
         if 'این معیار برای من اهمیت ویژه ای ندارد' not in n18:
             q='آیا پاسخ شما، معیاری قطعی برای شماست؟'
             a=['خیر','بله']
@@ -1041,7 +1041,7 @@ if (num00==sp):
             g=ex.iloc[0]['c_mental_att']
             n25= st.multiselect(q,a, eval(g))
         else:
-            n25 = st.multiselect(q,a)
+            n25 = st.multiselect(q,a,a)
         if 'این معیار برای من اهمیت ویژه ای ندارد' not in n25:
             q='آیا پاسخ شما، معیاری قطعی برای شماست؟'
             a=['خیر','بله']
