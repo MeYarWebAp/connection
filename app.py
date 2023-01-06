@@ -306,7 +306,7 @@ if (num00==sp):
             #d=a.index(g)
             n3 = st.multiselect(q,a,eval(g))
         else:
-            n3 = st.multiselect(q,a)
+            n3 = st.multiselect(q,a,a)
         if n3!='این معیار برای من اهمیت ویژه ای ندارد':
             q='آیا پاسخ شما، معیاری قطعی برای شماست؟'
             a=['خیر','بله']
