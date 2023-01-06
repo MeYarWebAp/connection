@@ -61,7 +61,7 @@ with st.sidebar:
     from streamlit_extras.app_logo import add_logo
     from PIL import Image
     image= logolink
-    st.image(image, caption='معیاریکی ازاستارت آپ های مورد حمایت دفتر معاونت توسعهٔ روابط علمی و سرمایهٔ انسانی ریاست جمهوری ایران است', width = 300)
+    st.image(image, caption='', width = 300)
     st.markdown(message)
     page = st.selectbox('',['تماس با ما','درباره معیار','پایان جستجوی من در معیار'])
     if page=='درباره معیار':
