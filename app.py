@@ -4,7 +4,7 @@ Created on Sat Jun 18 15:56:02 2022
 @author: Hamed Khalili
 """
 #####
-logolink = "https://db3pap002files.storage.live.com/y4mQaxQEAjYZeuQ54_Yh5XtEvoHvibUJ2FPhxgr86cQEtv2BcnK9rz5e7JfWnNRw0gTYkXTm26aqoDVEAUAiR-W1_jPlUlsTh6rJWL2GbB8LtDAmzKwXaAcc-gPbU-NFlnmpAM0GoVwg4vk0I93HtH0ae6AW11Ad2MpnzyoU5egJywW2xDBfdA89vtQNpmx2iHT?encodeFailures=1&width=712&height=561"
+logolink = "https://github.com/MeYarWebAp/logo/blob/main/logo.jpg?raw=true"
 import random
 import pandas as pd
 import sqlalchemy
