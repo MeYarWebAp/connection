@@ -1683,6 +1683,7 @@ if (num00==sp):
     nummm = st.number_input('لطفا عدد موجود در تصویر را وارد کنید',key=63529994252525,step=1) 
     st.write(st.session_state['number'])
     if not nummm==st.session_state['number']:
+        st.session_state['number'] = numm
         st.stop()
     
     p = st.button('معرفی کن', key="10478502")
