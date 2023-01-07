@@ -1235,7 +1235,7 @@ if (num00==sp):
             
     
      
-    st.markdown("<h3 style='text-align: center;'>ویژگی های مربوط به خودتان را وارد کنید</h3>", unsafe_allow_html=True )
+    st.markdown("<h5 style='text-align: center;'>ویژگی های مربوط به خودتان را وارد کنید</h5>", unsafe_allow_html=True )
     if W:
         st.markdown('<div style="text-align: center;color:Gray">ویژگی های شما اکنون بر اساس داده هایی که تا کنون وارد کرده اید، تنظیم شده اند</div>', unsafe_allow_html=True)
     with st.expander("ویژگی های شما"):
@@ -1645,7 +1645,7 @@ if (num00==sp):
             n123= st.selectbox(q,a, index=d)
         else:
             n123 = st.selectbox(q,a) 
-    st.markdown("<h3 style='text-align: center;'>معرفی گزینه ها</h3>", unsafe_allow_html=True )
+    st.markdown("<h5 style='text-align: center;'>معرفی گزینه ها</h5>", unsafe_allow_html=True )
     
     q='حد اقل درصد همپوشانی گزینه ها با معیارهای شما'
     if W:
