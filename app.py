@@ -1694,7 +1694,7 @@ if (num00==sp):
                 if 1==1:
 
                          st.stop()
-        else:
+        while nummm:
 
             if numm==nummm:
                 
