@@ -5,6 +5,11 @@ Created on Sat Jun 18 15:56:02 2022
 """
 #####
 logolink = "https://github.com/MeYarWebAp/logo/blob/main/logo.jpg?raw=true"
+import numpy as np
+from PIL import Image, ImageDraw, ImageFont
+from skimage import transform as tf
+from matplotlib import pyplot as plt
+
 import random
 import pandas as pd
 import sqlalchemy
@@ -18,11 +23,7 @@ import streamlit as st
 import pandas as pd
 import json
 import smtplib as s
-import numpy as np
-from PIL import Image, ImageDraw, ImageFont
-import skimage
-from skimage import transform as tf
-from matplotlib import pyplot as plt
+
 retries=15
 wait_time=1
 
