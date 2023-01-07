@@ -3028,13 +3028,14 @@ if (num00==sp):
     st.image(image=image, width=400)
     nummm = st.number_input('لطفا عدد موجود در تصویر را وارد کنید',key=63529994252525,step=1)
 
-    while not nummm:
+    if not nummm:
 
             if 1==1:
 
                      st.stop()
-    if nummm==numm:
-        result = {'شما':num0 , 'دیگران در نگاه شما': my_basket,'شما در نگاه دیگران': hisher_basket}
+    else:
+        if nummm==numm:
+            result = {'شما':num0 , 'دیگران در نگاه شما': my_basket,'شما در نگاه دیگران': hisher_basket}
         #re = pd.DataFrame(result)
         #re.style.set_properties(**{'background-color': 'white', 'color': 'black', 'border-color': 'white'})
         st.write("")
