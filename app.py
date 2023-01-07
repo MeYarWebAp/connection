@@ -1660,16 +1660,6 @@ if (num00==sp):
         num8765 = st.slider(q,0.75, 0.95, float(g),step=0.01)
     else:
         num8765 = st.slider(q,0.75, 0.95, 0.75,step=0.01)
-    
-    p = st.button('معرفی کن', key="10478502")
-
-    if not p:
-        st.stop()
-
-
-    
-    hisher_basket=[]
-    my_basket=[]
     def create_captcha(text, shear=0, size=(200,40), scale=1):
         
         im = Image.new("L", size, "black")
@@ -1687,12 +1677,22 @@ if (num00==sp):
     image = create_captcha(str(numm), shear=0)
     st.image(image=image, width=400)
     nummm = st.number_input('لطفا عدد موجود در تصویر را وارد کنید',key=63529994252525,step=1)
+    p = st.button('معرفی کن', key="10478502")
+
+    if not p:
+        st.stop()
+
+
+    
+    hisher_basket=[]
+    my_basket=[]
+    
     if p:
         
         
 
         
-        while 1==1:
+        if 1==1:
 
             if numm==nummm:
                 
