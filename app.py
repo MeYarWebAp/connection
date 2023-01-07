@@ -1660,8 +1660,7 @@ if (num00==sp):
         num8765 = st.slider(q,0.75, 0.95, float(g),step=0.01)
     else:
         num8765 = st.slider(q,0.75, 0.95, 0.75,step=0.01)
-    @st.cache(suppress_st_warning=True)  
-    @st.cache(allow_output_mutation=False)
+    
     def create_captcha(text, shear=0, size=(200,40), scale=1):
         
         im = Image.new("L", size, "black")
