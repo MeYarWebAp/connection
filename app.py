@@ -1677,7 +1677,7 @@ if (num00==sp):
         return image_tf/image_tf.max()  # value fall between 0 and 1
     @st.cache(suppress_st_warning=True)  
     @st.cache(allow_output_mutation=False)
-    def numm:
+    def numm():
         return random.randint(1000000001, 9999999999)
     image = create_captcha(str(numm), shear=0)
     st.image(image=image, width=400)
