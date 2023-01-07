@@ -1678,7 +1678,7 @@ if (num00==sp):
     if ('number' not in st.session_state):
         st.session_state['number'] = numm
     #copynumm=numm
-    st.write("")
+    #st.write("")
     st.info("لطفا عدد موجود در تصویر را وارد کنید")
     image = create_captcha(str(numm), shear=0)
     st.image(image=image, width=400)
