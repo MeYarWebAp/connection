@@ -275,8 +275,25 @@ def common_member(a, b):
 
 
 
+def create_captcha(text, shear=0, size=(200,40), scale=1):
+    
+        
+    im = Image.new("L", size, "black")
+    draw = ImageDraw.Draw(im)
+    font = ImageFont.load_default()
+    draw.text((2,2), text, fill=1, font=font)
 
-if (num00==sp):
+    image = np.array(im)
+
+    affine_tf = tf.AffineTransform(shear=shear)
+    image_tf = tf.warp(image, affine_tf)
+
+    return image_tf/image_tf.max()  # value fall between 0 and 1
+numm=random.randint(1000000001, 9999999999)
+image = create_captcha(str(numm), shear=0)
+st.image(image=image, width=400)
+nummm = st.number_input('لطفا عدد موجود در تصویر را وارد کنید',key=63529994252525,step=1)
+if (num00==sp) and (numm==nummm):
     
     
 
@@ -1660,23 +1677,7 @@ if (num00==sp):
         num8765 = st.slider(q,0.75, 0.95, float(g),step=0.01)
     else:
         num8765 = st.slider(q,0.75, 0.95, 0.75,step=0.01)
-    def create_captcha(text, shear=0, size=(200,40), scale=1):
-        
-        im = Image.new("L", size, "black")
-        draw = ImageDraw.Draw(im)
-        font = ImageFont.load_default()
-        draw.text((2,2), text, fill=1, font=font)
-
-        image = np.array(im)
-
-        affine_tf = tf.AffineTransform(shear=shear)
-        image_tf = tf.warp(image, affine_tf)
-
-        return image_tf/image_tf.max()  # value fall between 0 and 1
-    numm=random.randint(1000000001, 9999999999)
-    image = create_captcha(str(numm), shear=0)
-    st.image(image=image, width=400)
-    nummm = st.number_input('لطفا عدد موجود در تصویر را وارد کنید',key=63529994252525,step=1)
+    
     p = st.button('معرفی کن', key="10478502")
 
     if not p:
@@ -1690,11 +1691,10 @@ if (num00==sp):
     if p:
         
         
+        
 
         
-        if 1==1:
-
-            if numm==nummm:
+        
                 
         
                 existing_2= pd.read_sql("select * from M", getPandasfromtable (0))
