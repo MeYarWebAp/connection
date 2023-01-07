@@ -1681,7 +1681,7 @@ if (num00==sp):
     image = create_captcha(str(numm), shear=0)
     st.image(image=image, width=400)
     nummm = st.number_input('لطفا عدد موجود در تصویر را وارد کنید',key=63529994252525,step=1) 
-    st.write(st.session_state['name'])
+    st.write(st.session_state['number'])
     if nummm==st.session_state['number']:
         st.stop()
     
