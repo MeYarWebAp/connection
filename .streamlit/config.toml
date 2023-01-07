@@ -1,10 +1,12 @@
 [theme]
 [theme]
+[theme]
 base="light"
-primaryColor="#5be407"
+primaryColor="#b1f588"
 secondaryBackgroundColor="#f4f9f9"
 textColor="#4d4d50"
 font="serif"
+
 
 [global]
 dataFrameSerialization="legacy"
