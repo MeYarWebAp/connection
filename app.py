@@ -289,8 +289,9 @@ if (num00==sp):
         ix = exii.loc[exii['id']==num0].index.tolist()
         
     W=w1 or w2   
-    
-    st.markdown("<h3 style='text-align: center;'>معیارهای خود را برای انتخاب فرد مناسب خود وارد کنید</h3>", unsafe_allow_html=True )
+    #st.markdown("<h5 style='text-align: center;'> معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از خانواده و ارزش هاست</h5>", unsafe_allow_html=True )
+
+    st.markdown("<h5 style='text-align: center;'>معیارهای خود را برای انتخاب فرد مناسب خود وارد کنید</h5>", unsafe_allow_html=True )
 
     if W:
         st.markdown('<div style="text-align: center;color:Gray">معیارهای شما اکنون بر اساس داده هایی که تا کنون وارد کرده اید، تنظیم شده اند</div>', unsafe_allow_html=True)
