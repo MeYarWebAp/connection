@@ -1666,7 +1666,7 @@ if (num00==sp):
         im = Image.new("L", size, "black")
         draw = ImageDraw.Draw(im)
         font = ImageFont.load_default()
-        draw.text((2,2), text, fill="#000000", font=font)
+        draw.text((2,2), text, fill="blue", font=font)
 
         image = np.array(im)
 
