@@ -3005,9 +3005,9 @@ if (num00==sp):
     #st.dataframe(st.session_state['m_table'])
     st.markdown('<div style="text-align: center;color:Gray">دقت کنید که معرفی گزینه ها در معیار منوط به جستجو شدن طرفین مراجعه کننده توسط هم و مراجعه لزوما بیشتر از یکبار است</div>', unsafe_allow_html=True)
     result = {'شما':num0 , 'دیگران در نگاه شما': my_basket,'شما در نگاه دیگران': hisher_basket}
-    re = pd.DataFrame(result)
+    #re = pd.DataFrame(result)
     #re.style.set_properties(**{'background-color': 'white', 'color': 'black', 'border-color': 'white'})
-    st.dataframe(re)  
+    st.dataframe(result)  
     #st.dataframe(exii)
     #st.dataframe(exi)
 #st.success("")
