@@ -3034,12 +3034,15 @@ if (num00==sp):
 
                      st.stop()
     else:
-        if nummm==numm:
+        
+        if numm==nummm:
+            
             result = {'شما':num0 , 'دیگران در نگاه شما': my_basket,'شما در نگاه دیگران': hisher_basket}
+            st.write("")
+            st.dataframe(result)  
         #re = pd.DataFrame(result)
         #re.style.set_properties(**{'background-color': 'white', 'color': 'black', 'border-color': 'white'})
-        st.write("")
-        st.dataframe(result)  
+        
         #st.dataframe(exii)
         #st.dataframe(exi)
     #st.success("")
