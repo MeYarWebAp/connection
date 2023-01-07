@@ -8,5 +8,5 @@ pymysql==1.0.2
 cryptography
 streamlit-extras
 numpy
-skimage
+scikit-image
 matplotlib
