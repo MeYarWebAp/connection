@@ -20,6 +20,7 @@ import json
 import smtplib as s
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
+import skimage
 from skimage import transform as tf
 from matplotlib import pyplot as plt
 retries=15
