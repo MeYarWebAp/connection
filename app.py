@@ -1671,17 +1671,18 @@ if (num00==sp):
     hisher_basket=[]
     my_basket=[]
     def create_captcha(text, shear=0, size=(200,40), scale=1):
-            im = Image.new("L", size, "black")
-            draw = ImageDraw.Draw(im)
-            font = ImageFont.load_default()
-            draw.text((2,2), text, fill=1, font=font)
+        
+        im = Image.new("L", size, "black")
+        draw = ImageDraw.Draw(im)
+        font = ImageFont.load_default()
+        draw.text((2,2), text, fill=1, font=font)
 
-            image = np.array(im)
+        image = np.array(im)
 
-            affine_tf = tf.AffineTransform(shear=shear)
-            image_tf = tf.warp(image, affine_tf)
+        affine_tf = tf.AffineTransform(shear=shear)
+        image_tf = tf.warp(image, affine_tf)
 
-            return image_tf/image_tf.max()  # value fall between 0 and 1
+        return image_tf/image_tf.max()  # value fall between 0 and 1
     numm=random.randint(1000000001, 9999999999)
     image = create_captcha(str(numm), shear=0)
     st.image(image=image, width=400)
