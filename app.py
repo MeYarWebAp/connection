@@ -7,6 +7,7 @@ Created on Sat Jun 18 15:56:02 2022
 logolink = "https://github.com/MeYarWebAp/logo/blob/main/logo.jpg?raw=true"
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
+import skimage
 from skimage import transform as tf
 from matplotlib import pyplot as plt
 
