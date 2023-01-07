@@ -72,7 +72,7 @@ with st.sidebar:
     st.markdown(message)
     page = st.selectbox('',['تماس با ما','درباره معیار','پایان جستجوی من در معیار'])
     if page=='درباره معیار':
-        st.write("instagram.com/meyar")
+        st.write("www.meyr.ir")
         #st.write("")
         
     if page == 'تماس با ما':#
