@@ -18,6 +18,10 @@ import streamlit as st
 import pandas as pd
 import json
 import smtplib as s
+import numpy as np
+from PIL import Image, ImageDraw, ImageFont
+from skimage import transform as tf
+from matplotlib import pyplot as plt
 retries=15
 wait_time=1
 
@@ -3004,15 +3008,37 @@ if (num00==sp):
     st.write("")
     #st.dataframe(st.session_state['m_table'])
     st.markdown('<div style="text-align: center;color:Gray">دقت کنید که معرفی گزینه ها در معیار منوط به جستجو شدن طرفین مراجعه کننده توسط هم و مراجعه لزوما بیشتر از یکبار است</div>', unsafe_allow_html=True)
-    result = {'شما':num0 , 'دیگران در نگاه شما': my_basket,'شما در نگاه دیگران': hisher_basket}
-    #re = pd.DataFrame(result)
-    #re.style.set_properties(**{'background-color': 'white', 'color': 'black', 'border-color': 'white'})
-    st.write("")
-    st.dataframe(result)  
-    #st.dataframe(exii)
-    #st.dataframe(exi)
-#st.success("")
-    
+    def create_captcha(text, shear=0, size=(200,40), scale=1):
+        im = Image.new("L", size, "black")
+        draw = ImageDraw.Draw(im)
+        font = ImageFont.load_default()
+        draw.text((2,2), text, fill=1, font=font)
+
+        image = np.array(im)
+
+        affine_tf = tf.AffineTransform(shear=shear)
+        image_tf = tf.warp(image, affine_tf)
+
+        return image_tf/image_tf.max()  # value fall between 0 and 1
+    numm=random.randint(1000000001, 9999999999)
+    image = create_captcha(str(numm), shear=0)
+    nummm = st.number_input('لطفا عدد موجود در تصویر را وارد کنید',key=63529994252525,step=1)
+
+    while not nummm:
+
+            if 1==1:
+
+                     st.stop()
+    if nummm==numm:
+        result = {'شما':num0 , 'دیگران در نگاه شما': my_basket,'شما در نگاه دیگران': hisher_basket}
+        #re = pd.DataFrame(result)
+        #re.style.set_properties(**{'background-color': 'white', 'color': 'black', 'border-color': 'white'})
+        st.write("")
+        st.dataframe(result)  
+        #st.dataframe(exii)
+        #st.dataframe(exi)
+    #st.success("")
+
     st.write("")
     st.write("")
     st.write("")
