@@ -3007,6 +3007,7 @@ if (num00==sp):
     result = {'شما':num0 , 'دیگران در نگاه شما': my_basket,'شما در نگاه دیگران': hisher_basket}
     #re = pd.DataFrame(result)
     #re.style.set_properties(**{'background-color': 'white', 'color': 'black', 'border-color': 'white'})
+    st.write("")
     st.dataframe(result)  
     #st.dataframe(exii)
     #st.dataframe(exi)
