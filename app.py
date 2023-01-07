@@ -1670,9 +1670,7 @@ if (num00==sp):
     
     hisher_basket=[]
     my_basket=[]
-    if p:
-        
-        def create_captcha(text, shear=0, size=(200,40), scale=1):
+    def create_captcha(text, shear=0, size=(200,40), scale=1):
             im = Image.new("L", size, "black")
             draw = ImageDraw.Draw(im)
             font = ImageFont.load_default()
@@ -1688,13 +1686,12 @@ if (num00==sp):
         image = create_captcha(str(numm), shear=0)
         st.image(image=image, width=400)
         nummm = st.number_input('لطفا عدد موجود در تصویر را وارد کنید',key=63529994252525,step=1)
+    if p:
+        
+        
 
-        if not nummm:
-
-                if 1==1:
-
-                         st.stop()
-        while nummm:
+        
+        while 1==1:
 
             if numm==nummm:
                 
