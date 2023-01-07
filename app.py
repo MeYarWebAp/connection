@@ -1663,10 +1663,10 @@ if (num00==sp):
     
     def create_captcha(text, shear=0, size=(200,40), scale=1):
         
-        im = Image.new("L", size, "black")
+        im = Image.new("L", size, "blue")
         draw = ImageDraw.Draw(im)
         font = ImageFont.load_default()
-        draw.text((2,2), text, fill="blue", font=font)
+        draw.text((2,2), text, fill="white", font=font)
 
         image = np.array(im)
 
