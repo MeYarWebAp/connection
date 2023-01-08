@@ -1,7 +1,7 @@
 #hkh -*- coding: utf-8 -*-
 """
 Created on Sat Jun 18 15:56:02 2022
-@author: Hamed Khalili
+@author: Dr Hamed Khalili
 """
 #####
 logolink = "https://github.com/MeYarWebAp/logo/blob/main/logo.jpg?raw=true"
