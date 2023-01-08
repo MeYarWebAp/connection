@@ -251,7 +251,7 @@ def sendpass(email_1):#
     return rrr
 sp=sendpass(num0)
 #st.write(sp)
-num00 = st.number_input('لطفا پسورد ارسال شده به ایمیل خود را وارد کنید',key=63524252525,step=1)
+num00 = st.number_input('لطفا پسورد ارسال شده به ایمیل خود را وارد کنید🧪',key=63524252525,step=1)
 
 while not num00:
         
