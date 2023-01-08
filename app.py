@@ -180,7 +180,7 @@ mystyle = '''
 #c1, c2, c3 = st.columns((1,1, 1))
 
 #with c2:
-#st.info("""Welcome to Meyar""")
+##st.info("""""")
 st.markdown("<h5 style='text-align: center;'> معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از خانواده و ارزش هاست</h5>", unsafe_allow_html=True )
 #st.info("معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از خانواده و ارزش هاست")
 st.image(logolink,width=400)
