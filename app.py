@@ -1085,7 +1085,7 @@ if (num00==sp):
             g=ex.iloc[0]['c_living_location']
             n9= st.multiselect(q,a, eval(g))
         else:
-            n9 = st.multiselect(q,a)
+            n9 = st.multiselect(q,a,a)
         if 'این معیار برای من اهمیت ویژه ای ندارد' not in n9:
             q='آیا پاسخ شما، معیاری قطعی برای شماست؟'
             a=['خیر','بله']
