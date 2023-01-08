@@ -301,7 +301,7 @@ if (num00==sp):
     st.markdown("<h5 style='text-align: center;'>معیارهای خود را برای انتخاب فرد مناسب خود وارد کنید</h5>", unsafe_allow_html=True )
 
     if W:
-        st.markdown('<div style="text-align: center;color:Gray">معیارهای شما اکنون بر اساس داده هایی که تا کنون وارد کرده اید، تنظیم شده اند</div>', unsafe_allow_html=True)
+        st.markdown('<div style="text-align: center;color:Gray">معیارهای شما اکنون بر اساس داده هایی که تا کنون وارد کرده اید، تنظیم شده اند🗂️</div>', unsafe_allow_html=True)
         
     
     
@@ -1244,7 +1244,7 @@ if (num00==sp):
      
     st.markdown("<h5 style='text-align: center;'>ویژگی های مربوط به خودتان را وارد کنید</h5>", unsafe_allow_html=True )
     if W:
-        st.markdown('<div style="text-align: center;color:Gray">ویژگی های شما اکنون بر اساس داده هایی که تا کنون وارد کرده اید، تنظیم شده اند</div>', unsafe_allow_html=True)
+        st.markdown('<div style="text-align: center;color:Gray">ویژگی های شما اکنون بر اساس داده هایی که تا کنون وارد کرده اید، تنظیم شده اند🗂️</div>', unsafe_allow_html=True)
     with st.expander("ویژگی های شما"):
         q='جنسیت شما؟'
         a=['مرد','زن']
