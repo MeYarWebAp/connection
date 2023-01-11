@@ -1696,8 +1696,9 @@ if (num00==sp):
     if not nummm==st.session_state['number']:
         st.session_state['number'] = numm
         st.stop()
-    
-    p = st.button('معرفی کن', key="10478502")
+    col18, col19, col20 = st.columns(( 1,1,1))
+    with col19:
+        p = st.button('معرفی کن', key="10478502")
     
     if not p:
         st.stop()
