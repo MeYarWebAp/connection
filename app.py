@@ -185,7 +185,7 @@ st.markdown("<h5 style='text-align: center;'> معیار، بر مبنای اع�
 #st.info("معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از خانواده و ارزش هاست")
 col110, col120, col130 = st.columns(( 1,1,1))
 with col120:
-    st.image(logolink,width=400)
+    st.image(logolink,width=350)
 
 
 
@@ -1684,7 +1684,9 @@ if (num00==sp):
         st.session_state['number'] = numm
     #copynumm=numm
     #st.write("")
-    st.info("لطفا عدد موجود در تصویر را وارد کنید")
+    st.markdown('<div style="text-align: center;color:Gray">لطفا عدد موجود در تصویر را وارد کنید</div>', unsafe_allow_html=True)
+
+    #st.info("لطفا عدد موجود در تصویر را وارد کنید")
     image = create_captcha(str(numm), shear=0)
     col11, col12, col13 = st.columns(( 1,1,1))
     with col12:
