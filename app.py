@@ -184,7 +184,7 @@ mystyle = '''
 st.markdown("<h5 style='text-align: center;'> معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از خانواده و ارزش هاست</h5>", unsafe_allow_html=True )
 #st.info("معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از خانواده و ارزش هاست")
 col110, col120, col130 = st.columns(( 1,1,1))
-with col120:
+with col110:
     st.image(logolink,width=350)
 
 
