@@ -3060,10 +3060,13 @@ if (num00==sp):
             
     result = {'شما':num0 , 'دیگران در نگاه شما': my_basket,'شما در نگاه دیگران': hisher_basket}
     st.write("")
+    col88, col89, col90 = st.columns((1, 1,1))
+    with col89:
+        st.write(result)
     st.write(result)
     #re = pd.DataFrame(result)
-    st.dataframe(result) 
-    st.dataframe(my_basket)
+    #st.dataframe(result) 
+    #st.dataframe(my_basket)
         #
         #re.style.set_properties(**{'background-color': 'white', 'color': 'black', 'border-color': 'white'})
         
