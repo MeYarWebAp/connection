@@ -4,7 +4,7 @@ Created on Sat Jun 18 15:56:02 2022
 @author: Dr. Hamed Khalili
 """
 #####
-logolink = "https://github.com/MeYarWebAp/app/blob/main/logo.png?raw=true"
+logolink = "https://github.com/MeYarWebAp/app/blob/main/m.jpg?raw=true"
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 import skimage
