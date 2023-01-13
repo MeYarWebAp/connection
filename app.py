@@ -3063,7 +3063,7 @@ if (num00==sp):
     col88, col89, col90 = st.columns((1, 1,1))
     with col89:
         st.write(result)
-    st.write(result)
+    #st.write(result)
     #re = pd.DataFrame(result)
     #st.dataframe(result) 
     #st.dataframe(my_basket)
