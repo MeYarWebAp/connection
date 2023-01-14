@@ -181,8 +181,8 @@ mystyle = '''
 
 #with c2:
 ##st.info("""""")
-st.markdown("<h5 style='text-align: center;'> معیار، کوششی برای محافظت از ارزش خانواده است</h5>", unsafe_allow_html=True )
-#st.markdown("<h5 style='text-align: center;'> معیار، ماشینی اتوماتیک  است که رایگان و بدون هیچ واسطه ای ۲۴ ساعته جستجو می کند و بهترین انتخاب را به شما معرفی می کند</h5>", unsafe_allow_html=True )
+#st.markdown("<h5 style='text-align: center;'> معیار، کوششی برای محافظت از ارزش خانواده است</h5>", unsafe_allow_html=True )
+st.markdown("<a style='text-align: center;'> معیار، ماشینی اتوماتیک  است که رایگان و بدون هیچ واسطه ای ۲۴ ساعته جستجو می کند و بهترین انتخاب را به شما معرفی می کند</a>", unsafe_allow_html=True )
 
 #st.info("معیار، کوششی برای محافظت از خانواده و ارزش هاست")
 col110, col120, col130 = st.columns(( 1,1,1))
