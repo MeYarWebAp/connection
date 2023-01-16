@@ -165,7 +165,7 @@ with st.sidebar:
                             
                             st.write('درخواست با موفقیت انجام شد')
 
-st.markdown("<h5 style='text-align: center;'>بسمه تعالی</h5>", unsafe_allow_html=True )
+st.markdown("<h5 style='text-align: center;color:#454545'>بسمه تعالی</h5>", unsafe_allow_html=True )
 mystyle = '''
     <style>
         p {
@@ -181,9 +181,9 @@ mystyle = '''
 
 #with c2:
 ##st.info("""""")
-#st.markdown("<h5 style='text-align: center;'> معیار، کوششی برای محافظت از ارزش خانواده است</h5>", unsafe_allow_html=True )
+#st.markdown("<h5 style='text-align: center;color:#454545'> معیار، کوششی برای محافظت از ارزش خانواده است</h5>", unsafe_allow_html=True )
 #st.markdown("<a style='text-align: center;;color:blue'> معیار، ماشینی اتوماتیک  است که رایگان و بدون هیچ واسطه ای ۲۴ ساعته جستجو می کند و بهترین انتخاب را به شما معرفی می کند</a>", unsafe_allow_html=True )
-st.markdown("<h5 style='text-align: center;'> معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از ارزش خانواده است</h5>", unsafe_allow_html=True )
+st.markdown("<h5 style='text-align: center;color:#454545'> معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از ارزش خانواده است</h5>", unsafe_allow_html=True )
 #st.info("معیار، کوششی برای محافظت از خانواده و ارزش هاست")
 with st.expander(""):
     st.markdown("<h5 style='text-align: center;color:lightblue'>معیار، ماشین جستجوگری هوشمند است که در هر ثانیه و بدون نیاز به کمک هیچ انسانی یا واسطه ای غیر از خود شما، به سلیقه ها و انتخاب های شما به طور دقیق گوش فرا می دهد و برای شکل گیری خانواده ای جدید، به طور آنلاین، لینک های قابل ارائه ای که معیارهای شما را دارا هستند به شما پیشنهاد می کند. معیار، این کار را بر اساس درجه سخت گیری ای که خود شما تعیین می کنید، انجام می دهد. ماشین معیار، هدف اقتصادی ندارد و بدون نیاز به کسب درآمد، به طورخودکار، ۲۴ ساعته و هر ثانیه کار خود را انجام می دهد. معیار ، همچنین، ماموریتی بیشتر از لینک کردن برای خود تعریف نکرده است. پس ازچند کلیک و کمی صبر، کسانی که معیارهای شما را کسب کرده اند را، به شما می شناساند. معیار، پس از آن  فرض را بر اعتماد و هوشمندی خود شما می گذارد</h5>", unsafe_allow_html=True )
