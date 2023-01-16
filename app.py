@@ -3060,12 +3060,8 @@ if (num00==sp):
     st.write("")
     st.write("")
     #st.dataframe(st.session_state['m_table'])
-    st.markdown('<div style="text-align: center;color:Gray"> دقت کنید که معرفی گزینه ها در معیار منوط به جستجو شدن طرفین مراجعه کننده توسط هم و مراجعه لزوما بیشتر از یکبار است💡</div>', unsafe_allow_html=True)
-    #st.markdown('<h6 style="text-align: center;color:blue"> </h6>', unsafe_allow_html=True)
-    st.markdown("<html dir='rtl' lang='fa-IR'>", unsafe_allow_html=True)
-    st.markdown("<a><meta charset='utf-8'></a>", unsafe_allow_html=True)
-    st.markdown("<a style='direction: rtl;'>معیارها و ویژگی های شما در مراجعه بعدی به طور خود به خود بار گذاری می شوند هر چند می توانید آن ها را هر لحظه تغییر دهید</a>", unsafe_allow_html=True)
-            
+    st.markdown('<div style="text-align: center;color:blue"> دقت کنید که معرفی گزینه ها در معیار منوط به جستجو شدن طرفین مراجعه کننده توسط هم و مراجعه لزوما بیشتر از یکبار است. معیارها و ویژگی های شما در مراجعه بعدی به طور خود به خود بار گذاری می شوند هر چند می توانید آن ها را هر لحظه تغییر دهید💡</div>', unsafe_allow_html=True)
+                
     result = {'شما':num0 , 'دیگران در نگاه شما': my_basket,'شما در نگاه دیگران': hisher_basket}
     st.write("")
     col88, col89, col90 = st.columns((1, 1,1))
