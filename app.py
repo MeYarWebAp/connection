@@ -3059,7 +3059,7 @@ if (num00==sp):
     
     #st.write("")
     #st.write("")
-    with st.expander("💡"):
+    with st.expander(""):
         #st.markdown('<div style="text-align: center;color:Gray">💡</div>', unsafe_allow_html=True)
         st.markdown('<div style="text-align: center;color:Gray"> دقت کنید که معرفی گزینه ها در معیار منوط به جستجو شدن طرفین مراجعه کننده توسط هم و مراجعه لزوما بیشتر از یکبار است. معیارها و ویژگی های شما در مراجعه بعدی به طور خود به خود بار گذاری می شوند هر چند می توانید آن ها را هر لحظه تغییر دهید</div>', unsafe_allow_html=True)
     st.write("")           
