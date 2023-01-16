@@ -70,7 +70,7 @@ with st.sidebar:
     image= logolink
     st.image(image, caption='', width = 300)
     st.markdown(message)
-    page = st.selectbox('',['درباره معیار','تماس با ما','پایان جستجوی من در معیار'], help="")
+    page = st.selectbox('',['درباره معیار','تماس با ما','پایان جستجوی من در معیار'])
     if page=='درباره معیار':
         st.write("www.meyr.ir")
         #st.write("")
