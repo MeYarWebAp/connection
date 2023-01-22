@@ -187,7 +187,7 @@ st.markdown("<h5 style='text-align: center;color:#454545'> معیار، بر م�
 #st.info("معیار، کوششی برای محافظت از خانواده و ارزش هاست")
 col110, col120 = st.columns(( 1,1))
 with col110:
-    st.image(logolink,width=350)
+    st.image(logolink,width=320)
     num0 = st.text_input('ایمیل خود را از اینجا وارد کنید🧪')
 with col120:
     with st.expander(""):
