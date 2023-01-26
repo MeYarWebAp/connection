@@ -188,9 +188,9 @@ st.markdown("<h5 style='text-align: center;color:#454545'> معیار، بر م�
 col110, col120 = st.columns(( 1,1))
 with col110:
     st.image(logolink,width=320)
-    num0000=st.checkbox('بارگذاری داده های شما؟🧪')
-    if num0000:
-        num0 = st.text_input('ایمیل خود را از اینجا وارد کنید🧪')
+    #num0000=st.checkbox('بارگذاری داده های شما؟🧪')
+    
+    num0 = st.text_input('ایمیل خود را از اینجا وارد کنید🧪')
     
 with col120:
     with st.expander(""):
@@ -199,7 +199,7 @@ with col120:
 
 
  
-#
+
 while not num0:
         
         if 1==1:
