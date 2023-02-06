@@ -68,8 +68,8 @@ __موضوعات__
 with st.sidebar:
     from streamlit_extras.app_logo import add_logo
     from PIL import Image
-    image= logolink
-    st.image(image, caption='', width = 150)
+    #image= logolink
+    #st.image(image, caption='', width = 150)
     st.markdown(message)
     page = st.selectbox('',['درباره معیار','تماس با ما','پایان جستجوی من در معیار'])
     if page=='درباره معیار':
