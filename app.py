@@ -189,7 +189,7 @@ st.image(blink,width=450)
 #st.info("معیار، کوششی برای محافظت از خانواده و ارزش هاست")
 col110, col120 = st.columns(( 1,1))
 with col110:
-    st.image(logolink,width=320)
+    st.image(logolink,width=300)
     #num0000=st.checkbox('بارگذاری داده های شما؟🧪')
     
     num0 = st.text_input('ایمیل خود را از اینجا وارد کنید🧪')
