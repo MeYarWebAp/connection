@@ -166,7 +166,7 @@ with st.sidebar:
                             
                             st.write('درخواست با موفقیت انجام شد')
 
-st.markdown("<h5 style='text-align: center;color:#454545'>بسمه تعالی</h5>", unsafe_allow_html=True )
+#st.markdown("<h5 style='text-align: center;color:#454545'>بسمه تعالی</h5>", unsafe_allow_html=True )
 mystyle = '''
     <style>
         p {
@@ -185,7 +185,7 @@ mystyle = '''
 #st.markdown("<h5 style='text-align: center;color:#454545'> معیار، کوششی برای محافظت از ارزش خانواده است</h5>", unsafe_allow_html=True )
 #st.markdown("<a style='text-align: center;;color:blue'> معیار، ماشینی اتوماتیک  است که رایگان و بدون هیچ واسطه ای ۲۴ ساعته جستجو می کند و بهترین انتخاب را به شما معرفی می کند</a>", unsafe_allow_html=True )
 #st.markdown("<h5 style='text-align: center;color:#454545'> معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از ارزش خانواده است</h5>", unsafe_allow_html=True )
-st.image(blink,width=320)
+st.image(blink,width=450)
 #st.info("معیار، کوششی برای محافظت از خانواده و ارزش هاست")
 col110, col120 = st.columns(( 1,1))
 with col110:
