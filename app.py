@@ -4,6 +4,7 @@ Created on Sat Jun 18 15:56:02 2022
 @author: Dr. Hamed Khalili
 """
 #####
+blink="https://github.com/MeYarWebAp/logo/blob/main/b.png?raw=true"
 logolink = "https://github.com/MeYarWebAp/logo/blob/main/m.png?raw=true"
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
@@ -183,7 +184,8 @@ mystyle = '''
 ##st.info("""""")
 #st.markdown("<h5 style='text-align: center;color:#454545'> معیار، کوششی برای محافظت از ارزش خانواده است</h5>", unsafe_allow_html=True )
 #st.markdown("<a style='text-align: center;;color:blue'> معیار، ماشینی اتوماتیک  است که رایگان و بدون هیچ واسطه ای ۲۴ ساعته جستجو می کند و بهترین انتخاب را به شما معرفی می کند</a>", unsafe_allow_html=True )
-st.markdown("<h5 style='text-align: center;color:#454545'> معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از ارزش خانواده است</h5>", unsafe_allow_html=True )
+#st.markdown("<h5 style='text-align: center;color:#454545'> معیار، بر مبنای اعتماد بوده و کوششی برای محافظت از ارزش خانواده است</h5>", unsafe_allow_html=True )
+st.image(blink,width=320)
 #st.info("معیار، کوششی برای محافظت از خانواده و ارزش هاست")
 col110, col120 = st.columns(( 1,1))
 with col110:
