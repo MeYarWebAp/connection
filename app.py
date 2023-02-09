@@ -1703,9 +1703,9 @@ if (num00==sp):
 
     #st.info("لطفا عدد موجود در تصویر را وارد کنید")
     image = create_captcha(str(numm), shear=0)
-    col11, col12, col13 = st.columns(( 1,1,1))
-    with col12:
-        st.image(image=image, width=400)
+    #col11, col12, col13 = st.columns(( 1,1,1))
+    #with col12:
+    st.image(image=image, width=400)
     nummm = st.number_input('',key=63529994252525,step=1) 
     #st.write(st.session_state['number'])
     if not nummm==st.session_state['number']:
