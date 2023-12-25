@@ -9,3 +9,4 @@ cryptography
 streamlit-extras
 scikit-image
 matplotlib
+numpy
