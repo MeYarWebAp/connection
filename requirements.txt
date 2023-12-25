@@ -8,7 +8,6 @@ cryptography
 scikit-image
 scikit-learn==1.2.2
 numpy
-streamlit==1.25.0
-altair==4.2.2
-
+altair<5
+streamlit
 
