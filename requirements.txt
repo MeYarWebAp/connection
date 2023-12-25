@@ -8,5 +8,5 @@ cryptography
 scikit-image
 matplotlib
 numpy
-streamlit==1.22.0
-altair==4.2.2
+altair<5
+streamlit
