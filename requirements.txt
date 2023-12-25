@@ -7,5 +7,5 @@ cryptography
 streamlit-extras
 numpy
 scikit-image
-streamlit
-altair<5
+streamlit==1.22.0
+
