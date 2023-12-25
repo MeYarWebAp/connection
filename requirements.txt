@@ -7,3 +7,4 @@ cryptography
 numpy
 scikit-image
 altair<5
+streamlit
