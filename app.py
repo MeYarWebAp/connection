@@ -11,7 +11,7 @@ from PIL import Image, ImageDraw, ImageFont
 import skimage
 from skimage import transform as tf
 from matplotlib import pyplot as plt
-
+import altair
 import random
 import pandas as pd
 import sqlalchemy
