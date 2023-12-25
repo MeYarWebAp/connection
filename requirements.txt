@@ -8,3 +8,4 @@ streamlit-extras
 numpy
 scikit-image
 streamlit
+altair<5
