@@ -8,3 +8,4 @@ cryptography
 numpy
 scikit-image
 streamlit
+streamlit_extras
