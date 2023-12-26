@@ -6,4 +6,5 @@ textColor="#3a3a3d"
 font="serif"
 [global]
 dataFrameSerialization="legacy"
-
+[server]
+fileWatcherType = "poll"
