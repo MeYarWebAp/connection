@@ -5,6 +5,7 @@ COPY .streamlit/config.toml /root/.streamlit/config.toml
 COPY .streamlit/secrets.toml /root/.streamlit/secrets.toml
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
+RUN pip install altair<5
 EXPOSE 8501
 COPY . /app
 ENTRYPOINT ["streamlit", "run"]
