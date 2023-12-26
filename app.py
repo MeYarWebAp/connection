@@ -52,9 +52,9 @@ def getPandasfromtable (x):
             sleep = (wait_time * 2 ** x + random.uniform(0, 1))
             time.sleep(sleep)
             x += 1
-fdf = pd.read_sql("select * from F", getPandasfromtabl (0))
+fdf = pd.read_sql("select * from F", getPandasfromtable (0))
 fdf = fdf.iloc[1:]
-mdf = pd.read_sql("select * from M", getPandasfromtabl (0))
+mdf = pd.read_sql("select * from M", getPandasfromtable (0))
 mdf = mdf.iloc[1:]
 mdf.to_sql(con=engine, name='M', if_exists='replace', index=False)
 fdf.to_sql(con=engine, name='F', if_exists='replace', index=False)
