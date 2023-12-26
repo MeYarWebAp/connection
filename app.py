@@ -28,6 +28,16 @@ import smtplib as s
 
 retries=15
 wait_time=1
+############################################################################Creating Tables just once!
+mdata = {'id': [ 'Bob'],'address': ['Street 123']}
+fdata = {'id': [ 'Alice'],'address': ['Street 124']}
+mdf = pd.DataFrame(mdata)
+fdf = pd.DataFrame(fdata)
+engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+mdf.to_sql(con=engine, name='M', if_exists='replace', index=False)
+fdf.to_sql(con=engine, name='F', if_exists='replace', index=False)
+############################################################################
+
 
 common_meyar_percent=0.75
 
