@@ -6,4 +6,4 @@ pymysql==1.0.2
 cryptography
 numpy
 scikit-image
-streamlit>=1.20.0
+streamlit
