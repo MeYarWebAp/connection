@@ -56,6 +56,7 @@ fdf = pd.read_sql("select * from F", getPandasfromtable (0))
 fdf = fdf.iloc[1:]
 mdf = pd.read_sql("select * from M", getPandasfromtable (0))
 mdf = mdf.iloc[1:]
+engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
 mdf.to_sql(con=engine, name='M', if_exists='replace', index=False)
 fdf.to_sql(con=engine, name='F', if_exists='replace', index=False)
 ##########################################################################
