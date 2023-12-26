@@ -37,28 +37,28 @@ wait_time=1
 #mdf.to_sql(con=engine, name='M', if_exists='replace', index=False)
 #fdf.to_sql(con=engine, name='F', if_exists='replace', index=False)
 ############################################################################deleting the first row
-def getPandasfromtable (x):
-    while True:
-        try:
-            engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-            dbConnection= engine.connect()
-            return dbConnection
+#def getPandasfromtable (x):
+    #while True:
+        #try:
+            #engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+            #dbConnection= engine.connect()
+            #return dbConnection
         
-        except pymysql.Error as e:
+        #except pymysql.Error as e:
         
-            if x == retries:
-                st.write("در حال حاضر، ارتباط با داده های معیار به زمان بیشتری  نیاز دارد. لطفا کمی بعدتر، دوباره تلاش کنید")
-                st.stop()
-            sleep = (wait_time * 2 ** x + random.uniform(0, 1))
-            time.sleep(sleep)
-            x += 1
-fdf = pd.read_sql("select * from F", getPandasfromtable (0))
-fdf = fdf.iloc[1:]
-mdf = pd.read_sql("select * from M", getPandasfromtable (0))
-mdf = mdf.iloc[1:]
-engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
-mdf.to_sql(con=engine, name='M', if_exists='replace', index=False)
-fdf.to_sql(con=engine, name='F', if_exists='replace', index=False)
+            #if x == retries:
+                #st.write("در حال حاضر، ارتباط با داده های معیار به زمان بیشتری  نیاز دارد. لطفا کمی بعدتر، دوباره تلاش کنید")
+                #st.stop()
+            #sleep = (wait_time * 2 ** x + random.uniform(0, 1))
+            #time.sleep(sleep)
+            #x += 1
+#fdf = pd.read_sql("select * from F", getPandasfromtable (0))
+#fdf = fdf.iloc[1:]
+#mdf = pd.read_sql("select * from M", getPandasfromtable (0))
+#mdf = mdf.iloc[1:]
+#engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
+#mdf.to_sql(con=engine, name='M', if_exists='replace', index=False)
+#fdf.to_sql(con=engine, name='F', if_exists='replace', index=False)
 ##########################################################################
 
 common_meyar_percent=0.75
