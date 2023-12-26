@@ -36,8 +36,14 @@ wait_time=1
 #engine = create_engine("mysql+pymysql://{user}:{password}@{host}/{database}".format(**st.secrets["mysql"]))
 #mdf.to_sql(con=engine, name='M', if_exists='replace', index=False)
 #fdf.to_sql(con=engine, name='F', if_exists='replace', index=False)
-############################################################################
-
+############################################################################deleting the first row
+fdf = pd.read_sql("select * from F", getPandasfromtabl (0))
+fdf = fdf.iloc[1:]
+mdf = pd.read_sql("select * from M", getPandasfromtabl (0))
+mdf = mdf.iloc[1:]
+mdf.to_sql(con=engine, name='M', if_exists='replace', index=False)
+fdf.to_sql(con=engine, name='F', if_exists='replace', index=False)
+##########################################################################
 
 common_meyar_percent=0.75
 
